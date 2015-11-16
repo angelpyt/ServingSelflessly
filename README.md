@@ -1,2 +1,2 @@
 # ServingSelflessly
-"My favorite candy is starburst especially the red ones"
+My favourite candy is kitkat, especially mocha flavor.
