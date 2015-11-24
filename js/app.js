@@ -1,5 +1,5 @@
 // Create app
-var myApp = angular.module('myApp', ['ui.router'])
+var myApp = angular.module('myApp', ['ui.router','firebase'])
 // Configure app
 myApp.config(function($stateProvider) {
     $stateProvider
@@ -35,23 +35,44 @@ myApp.config(function($stateProvider) {
         });
     })
 
-
-// Projects page controller: define $scope.about as a string
     .controller('MapController', function($scope, $http){
       var map = L.map('map').setView([51.505, -0.09], 13);
     })
 
-// Contact controller: define $scope.url as an image
     .controller('ForumController', function($scope){
       $scope.url = "http://www.quicksprout.com/images/foggygoldengatebridge.jpg"
     })
 
-// About controller: define $scope.url as an image
-    .controller('AboutController', function($scope, $http){
+    .controller('AboutController', function($scope, $http, $firebaseArray){
       // $http.get('data/about.json').success(function(response) {
       //   $scope.about = response;
       //   console.log($scope.about)
       // })
+
+        var ref = new Firebase("https://sscontactapp.firebaseio.com/");
+        var contactsRef = ref.child('contacts')
+
+        $scope.contacts = $firebaseArray(contactsRef)
+
+        $scope.submit = function() {
+            $scope.contacts.$add({
+                name: $scope.name,
+                email: $scope.email,
+                subject: $scope.subject,
+                message: $scope.message,
+                time: Firebase.ServerValue.TIMESTAMP
+            })
+
+            .then(function() {
+                $scope.name = "";
+                $scope.email = "";
+                $scope.subject = "";
+                $scope.message = "";
+                $scope.contacts.$save();
+                alert("Thanks for leaving a message, our staff will contact you ASAP");
+            })
+        }    
+
     })
 
 
