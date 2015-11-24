@@ -4,7 +4,7 @@ var myApp = angular.module('myApp', ['ui.router','firebase'])
 myApp.config(function($stateProvider) {
     $stateProvider
     .state('home', {
-        url:'/home',
+        url:'',
         templateUrl: 'templates/home.html',
         controller: 'HomeController',
     })
@@ -25,7 +25,7 @@ myApp.config(function($stateProvider) {
     })
 })
 
-// Home page controller: define $scope.number as a number
+    // Home page controller
     .controller('HomeController', function($scope){
         $(document).ready(function(){
             var slider = $("#slider").mostSlider({
@@ -35,20 +35,37 @@ myApp.config(function($stateProvider) {
         });
     })
 
+    // Map page controller
     .controller('MapController', function($scope, $http){
-      var map = L.map('map').setView([51.505, -0.09], 13);
+        // $http.get('data/about.json').success(function(response) {
+        // $scope.mapData = response;
+        // )
+
+        // var map = L.map('map').setView([40, -100], 5);
+        // var layer = L.tileLayer('https://api.mapbox.com/v4/mapbox.dark/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibGlzYWxseSIsImEiOiJjaWZzZWs2M3oxOWw2b2VrcnRobzh4OGRiIn0.fkN85EVGVV_JCobEVLwrJQ');
+        // layer.addTo(map)
+
+        // buildMap($scope.mapData, map)
+
+        // var buildMap = function(data, map) {
+        //     // build map function heres
+        // }
+        
     })
 
+    // Forum page controller
     .controller('ForumController', function($scope){
-      $scope.url = "http://www.quicksprout.com/images/foggygoldengatebridge.jpg"
+        $scope.url = "http://www.quicksprout.com/images/foggygoldengatebridge.jpg"
     })
 
+    // About page controller
     .controller('AboutController', function($scope, $http, $firebaseArray){
-      // $http.get('data/about.json').success(function(response) {
-      //   $scope.about = response;
-      //   console.log($scope.about)
-      // })
+        $http.get('data/about.json').success(function(response) {
+        $scope.aboutData = response;
+        console.log($scope.aboutData)
+        })
 
+        // Contact box
         var ref = new Firebase("https://sscontactapp.firebaseio.com/");
         var contactsRef = ref.child('contacts')
 
@@ -69,7 +86,7 @@ myApp.config(function($stateProvider) {
                 $scope.subject = "";
                 $scope.message = "";
                 $scope.contacts.$save();
-                alert("Thanks for leaving a message, our staff will contact you ASAP");
+                alert("Thanks for leaving a message, one of our creators will contact you as soon as possible");
             })
         }    
 
