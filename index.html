@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ServingSelflessly</title>
+    
+    <!-- Libraries -->
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+
+    <!-- Add ui-router library here -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- Firebase -->
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+
+    <!-- leaflet libraries -->
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <script src="js/mostslider.js" type="text/javascript"></script>
+    
+    <!-- Custom code -->
+    <script src="js/app.js"></script>
+    <link href = "css/app.css" rel="stylesheet" type = "text/css"/>
+<!--     <link rel="icon" href="img/pageicon.png"/> -->
+
+  
+  </head>
+  <body>
+    <div>
+      <nav class="navbar navbar-default" id="navbar">
+        <div class="container-fluid">
+          <div class="navbar-header">
+<!--             <a class="navbar-brand" href="#/home">Yutong Pan</a>   -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span> 
+            </button>       
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li><a ui-sref="home" style="color:white" href="#">HOME</a></li>
+              <li><a ui-sref="map" style="color:white" href="#">MAP</a></li>
+              <li><a ui-sref="forum" style="color:white" href="#">FORUM</a></li> 
+              <li><a ui-sref="about" style="color:white" href="#">ABOUT</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+        <!-- This is where your content will display -->
+      <div ui-view></div>
+
+      <footer class="container">        
+        <div id="coby">
+          <p>&copy;Cobyright 2015 · ServingSelflesslyTeam</p>
+        </div>
+      </footer>
+
+  </body>
+</html>
