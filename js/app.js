@@ -23,6 +23,11 @@ myApp.config(function($stateProvider) {
         templateUrl: 'templates/about.html',
         controller: 'AboutController'     
     })
+    // .state('user', {
+    //     url:'/user',
+    //     templateUrl: 'templates/user.html',
+    //     controller: 'UserController'     
+    // })
 })
 
     // Home page controller
@@ -91,5 +96,9 @@ myApp.config(function($stateProvider) {
         }    
 
     })
+
+    // .controller('UserController', function($scope){
+    //   $scope.url = "http://www.quicksprout.com/images/foggygoldengatebridge.jpg"
+    // })
 
 

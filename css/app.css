@@ -72,12 +72,8 @@ footer {
 	padding-right: 3em;
 }
 
-#coby {
-	padding-top: 100px;
-}
-
 #contact-title {
-	padding-bottom: 100px;
+	padding-bottom: 50px;
 }
 
 .fa {
@@ -111,4 +107,19 @@ footer {
     max-width: 100%;
     height: auto;
 }
+
+/*User login*/
+#signupButton, #loginButton, #logoutButton {
+	background-color: transparent;
+	color: #3399FF !important;
+	border-style: solid;
+	border-color: #3399FF;
+	border-width: .1em;
+	float: right;
+	display: inline-block;
+	margin: 10px;
+	font-size: 13px;
+}
+
+
 
