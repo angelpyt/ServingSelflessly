@@ -25,6 +25,8 @@ footer {
 	padding-top: 3em;
 }
 
+
+/*---------------navigation bar--------------*/
 #navbar {
 	-o-border-radius: 0 !important;
     -webkit-border-radius: 0 !important;
@@ -37,6 +39,10 @@ footer {
 	padding-top: 1em;
 	padding-bottom: 1em;
 	margin-bottom: 0em;
+}
+
+.navbar-nav>li>a:hover{
+	font-weight: bold;
 }
 
 /*home page*/
@@ -60,6 +66,7 @@ footer {
 #homeSection > p {
 	line-height: 3em;
 }
+
 .jumbotron {
 	background-color: white;
     -webkit-border-radius: 0 !important;
