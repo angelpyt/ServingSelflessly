@@ -87,3 +87,8 @@ h1, input {
 .inputButton:focus {
   outline: none;
 }
+
+/*sets display of signin to none*/
+#signin {
+  display: none;
+}

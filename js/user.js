@@ -1,3 +1,15 @@
+var ref = new Firebase("https://sscontactapp.firebaseio.com/");
+var user = ref.getAuth();
+
+// only shows login option if user clicks login
+$(document).ready(function(){
+    $("#login_id").click(function(){
+        console.log("clicked");
+        $("#signin").show();
+        $("#signup").hide();
+    });
+});
+
 function checkPass()
 {
     //Store the password field objects into variables ...
@@ -17,7 +29,7 @@ function checkPass()
         pass2.style.backgroundColor = goodColor;
         message.style.color = goodColor;
         message.innerHTML = "Passwords Match!"
-    }else{
+    } else{
         //The passwords do not match.
         //Set the color to the bad color and
         //notify the user.
