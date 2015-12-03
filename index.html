@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
 
+    <!-- slider -->
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="js/modernizr-2.6.2.min.js"></script>
     <script src="js/mostslider.js" type="text/javascript"></script>
@@ -59,13 +60,13 @@
               <li><a ui-sref="about" style="color:white">ABOUT</a></li>
             </ul>
 
-            <form id="account-form">
-                <button id="signupButton" class="btn btn-lg btn-default" type="submit">Log out</button>
+            <form id="account-form" class="log-out" ng-show="userId">
+                <button ng-click="logOut()" id="signupButton" class="btn btn-lg btn-default" type="submit">Log out</button>
             </form>
 
-            <form id="account-form" action="user.html">
+<!--             <form id="account-form" action="user.html">
                 <button id="loginButton" class="btn btn-lg btn-default" type="submit">Log in</button>
-            </form>
+            </form> -->
 
             <form id="account-form" action="user.html">
                 <button id="logoutButton" class="btn btn-lg btn-default" type="submit">Sign up</button>
