@@ -5,75 +5,76 @@ $(document).ready(function(){
         $("#signin").show();
         $("#signup").hide();
     });
-});
+})
 
-// Create application with dependency 'firebase'
-var myApp = angular.module('myApp', ['firebase']);
-// Bind controller, passing in $scope, $firebaseAuth, $firebaseArray, $firebaseObject
-myApp.controller('myCtrl', function($scope, $firebaseAuth, $firebaseArray, $firebaseObject){
-    // Create a variable 'ref' to reference your firebase storage
-    var ref = new Firebase("https://ss-user-app.firebaseio.com/");
 
-    var usersRef = ref.child("users");
+// // Create application with dependency 'firebase'
+// var myApp = angular.module('myApp', ['firebase']);
+// // Bind controller, passing in $scope, $firebaseAuth, $firebaseArray, $firebaseObject
+// myApp.controller('myCtrl', function($scope, $firebaseAuth, $firebaseArray, $firebaseObject){
+//     // Create a variable 'ref' to reference your firebase storage
+//     var ref = new Firebase("https://ss-user-app.firebaseio.com/");
 
-    // Create authorization object that referes to firebase
-    $scope.authObj = $firebaseAuth(ref);
+//     var usersRef = ref.child("users");
 
-    // Create a firebaseObject of your users, and store this as part of $scope
-    $scope.users = $firebaseObject(usersRef);
+//     // Create authorization object that referes to firebase
+//     $scope.authObj = $firebaseAuth(ref);
 
-    // Test if already logged in
-    var authData = $scope.authObj.$getAuth();
-    if (authData) {
-        $scope.userId = authData.uid;
-    } 
-    // SignUp function
-    $scope.signUp = function() {
-        // Create user
-        $scope.authObj.$createUser({
-            email: $scope.email,
-            password: $scope.password,          
-        })
+//     // Create a firebaseObject of your users, and store this as part of $scope
+//     $scope.users = $firebaseObject(usersRef);
 
-        // Once the user is created, call the logIn function
-        .then($scope.logIn)
+//     // Test if already logged in
+//     var authData = $scope.authObj.$getAuth();
+//     if (authData) {
+//         $scope.userId = authData.uid;
+//     } 
+//     // SignUp function
+//     $scope.signUp = function() {
+//         // Create user
+//         $scope.authObj.$createUser({
+//             email: $scope.email,
+//             password: $scope.password,          
+//         })
 
-        // Once logged in, set and save the user data
-        .then(function(authData) {
-            $scope.userId = authData.uid;
-            $scope.users[authData.uid] ={
-                username: $scope.username,
-            }
-            $scope.users.$save()
-        })
+//         // Once the user is created, call the logIn function
+//         .then($scope.logIn)
 
-        // Catch any errors
-        .catch(function(error) {
-            console.error("Error: ", error);
-        });
-    }
+//         // Once logged in, set and save the user data
+//         .then(function(authData) {
+//             $scope.userId = authData.uid;
+//             $scope.users[authData.uid] ={
+//                 username: $scope.username,
+//             }
+//             $scope.users.$save()
+//         })
 
-    // SignIn function
-    $scope.signIn = function() {
-        $scope.logIn().then(function(authData){
-            $scope.userId = authData.uid;
-        })
-    }
+//         // Catch any errors
+//         .catch(function(error) {
+//             console.error("Error: ", error);
+//         });
+//     }
 
-    // LogIn function
-    $scope.logIn = function() {
-        console.log('log in')
-        return $scope.authObj.$authWithPassword({
-            email: $scope.email,
-            password: $scope.password
-        })
-    }
+//     // SignIn function
+//     $scope.signIn = function() {
+//         $scope.logIn().then(function(authData){
+//             $scope.userId = authData.uid;
+//         })
+//     }
 
-    // LogOut function
-    $scope.logOut = function() {
-        $scope.authObj.$unauth()
-        $scope.userId = false
-    }
+//     // LogIn function
+//     $scope.logIn = function() {
+//         console.log('log in')
+//         return $scope.authObj.$authWithPassword({
+//             email: $scope.email,
+//             password: $scope.password
+//         })
+//     }
+
+//     // LogOut function
+//     $scope.logOut = function() {
+//         $scope.authObj.$unauth()
+//         $scope.userId = false
+//     }
 
 
 function checkPass() {
