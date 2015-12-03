@@ -46,15 +46,15 @@ myApp.config(function($stateProvider) {
         // $scope.mapData = response;
         // )
 
-        // var map = L.map('map').setView([40, -100], 5);
-        // var layer = L.tileLayer('https://api.mapbox.com/v4/mapbox.dark/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibGlzYWxseSIsImEiOiJjaWZzZWs2M3oxOWw2b2VrcnRobzh4OGRiIn0.fkN85EVGVV_JCobEVLwrJQ');
-        // layer.addTo(map)
+        var map = L.map('map').setView([40, -100], 5);
+        var layer = L.tileLayer('https://api.mapbox.com/v4/mapbox.dark/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibGlzYWxseSIsImEiOiJjaWZzZWs2M3oxOWw2b2VrcnRobzh4OGRiIn0.fkN85EVGVV_JCobEVLwrJQ');
+        layer.addTo(map)
 
-        // buildMap($scope.mapData, map)
+        buildMap($scope.mapData, map)
 
-        // var buildMap = function(data, map) {
-        //     // build map function heres
-        // }
+        var buildMap = function(data, map) {
+            // build map function heres
+        }
         
     })
 
@@ -71,7 +71,7 @@ myApp.config(function($stateProvider) {
         })
 
         // Contact box
-        var ref = new Firebase("https://sscontactapp.firebaseio.com/");
+        var ref = new Firebase("https://ss-contact-app.firebaseio.com/");
         var contactsRef = ref.child('contacts')
 
         $scope.contacts = $firebaseArray(contactsRef)
