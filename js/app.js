@@ -60,57 +60,11 @@ myApp.config(function($stateProvider) {
 
     // Forum page controller
     .controller('ForumController', function($scope){
-        //log user out
-        $("#out").on("click", function() {
-            if (currentUser != null) {
-                Parse.User.logOut();
-                location.reload();
-                alert("You have successfully logged out");
-            }
-        })
-
-        //sign up for user
-        $("#signup").submit(function() {
-            var user = new Parse.User();
-            user.set("username", $("#upname").val());
-            user.set("password", $("#uppassword").val());
-            user.set("reviews", [])
-            user.signUp(null, {
-                success: function(user) {
-                    Parse.User.logIn($("#upname").val(), $("#uppassword").val(), {
-                        success: function(user) {
-                        document.location.href = "index.html";
-                      },
-                      error: function(error) {
-                        alert("Error: " + error.code + " "+ error.message);
-                        clearInput();
-                      }
-                    });
-                }
-            });
-            return false;
-        });
-
-        //sign in for user
-        $("#signin").submit(function() {
-            Parse.User.logIn($("#inname").val(), $("#inpassword").val(), {
-                success: function(user) {
-                    document.location.href = "index.html";
-                },
-                error: function(error) {
-                    alert("Error: " + error.code + " " + error.message);
-                    clearInput();   
-                }   
-            });
-            return false;
-        });
-
-        // clears all input
-        var clear = function() {
-            $("#upname").val("");
-            $("#uppassword").val("");
-            $("#inname").val("");
-            $("#inpassword").val("");
+        // if there is a current user then the signup should turn to logout
+        if (currentUser != null) {
+            $('#loginButton').hide();
+            $("#signupButton").text("Logout");
+            $("#account-form").attr("action", "");
         }
 
         //Rating 
@@ -191,7 +145,7 @@ myApp.config(function($stateProvider) {
             var Content = $('<div id = "C"></div>');
             Content.text(content);
             var D = $('<div id = "Date"></div>');
-            D.text(" Created on " + date);
+            D.text(" Created on " + date + " by " + item.get('username')); 
             var Rate = $('<div id = "R"></div>');
             Rate.raty({score: rating, readOnly: true});
             var Helpful = $('<div id = "H"></div>');
@@ -234,10 +188,6 @@ myApp.config(function($stateProvider) {
             div.append(Content);
             div.append(Helpful);
 
-
-            //li.append(button);
-
-            //$('#reviewArea').append(li);
             $('#reviewArea').append(div);
         }
 

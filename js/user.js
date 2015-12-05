@@ -7,6 +7,66 @@ $(document).ready(function(){
     });
 })
 
+Parse.User.logOut();
+Parse.initialize("WQe7zzFFG3JYkV9BP6f6Hu6T4q2uSYD9jffBLHcp", "y9hajTS7877LR6ByHV7kqlQ8US1MiSvjIhVO2esd");
+
+//log user out
+$("#out").on("click", function() {
+    if (currentUser != null) {
+        Parse.User.logOut();
+        location.reload();
+        alert("You have successfully logged out");
+    }
+})
+
+//sign up for user
+$("#signup").submit(function() {
+    var user = new Parse.User();
+
+    user.set("username", $("#new-username").val());
+    user.set("password", $("#new-password").val());
+    user.set("passwordConfirm", $("#new-password-confirm").val());
+    user.set("reviews", [])
+
+    user.signUp(null, {
+            success: function(user) {
+                Parse.User.logIn($("#new-username").val(), $("#new-password").val(), {
+                    success: function(user) {
+                    document.location.href = "index.html";
+                  },
+                  error: function(error) {
+                    alert("Error: " + error.code + " "+ error.message);
+                    clearInput();
+                  }
+                });
+            }
+        });
+        return false;
+});
+
+
+//sign in for user
+$("#signin").submit(function() {
+    Parse.User.logIn($("#username").val(), $("#password").val(), {
+        success: function(user) {
+            document.location.href = "index.html";
+        },
+        error: function(error) {
+            alert("Error: " + error.code + " " + error.message);
+            clearInput();   
+        }   
+    });
+    return false;
+});
+
+// clears all input
+var clear = function() {
+    $("#username").val("");
+    $("#password").val("");
+    $("#new-username").val("");
+    $("#new-password").val("");
+}
+
 
 // // Create application with dependency 'firebase'
 // var myApp = angular.module('myApp', ['firebase']);

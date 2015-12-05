@@ -35,13 +35,14 @@
 
     <!-- Raty FA -->
     <script type="text/javascript" src="js/jquery.raty-fa.js"></script>
+
     <!-- Include parse library here -->
     <script src="https://www.parsecdn.com/js/parse-1.6.0.min.js"></script>
     
     <!-- Custom code -->
     <script src="js/app.js"></script>
     <link href = "css/app.css" rel="stylesheet" type = "text/css"/>
-<!--     <link rel="icon" href="img/pageicon.png"/> -->
+    <link rel="icon" href="img/icon.png"/>
 
   
   </head>
@@ -65,16 +66,16 @@
               <li><a ui-sref="about" style="color:white">ABOUT</a></li>
             </ul>
 
-            <form id="account-form out" class="log-out" ng-show="userId">
-                <button ng-click="logOut()" id="signupButton" class="btn btn-lg btn-default" type="submit">Log out</button>
-            </form>
-
-<!--             <form id="account-form" action="user.html">
-                <button id="loginButton" class="btn btn-lg btn-default" type="submit">Log in</button>
+<!--             <form id="account-form out" class="log-out" ng-show="userId">
+                <button ng-click="logOut()" id="logoutButton" class="btn btn-lg btn-default" type="submit">Log out</button>
             </form> -->
 
             <form id="account-form" action="user.html">
-                <button id="logoutButton" class="btn btn-lg btn-default" type="submit">Sign up</button>
+                <button id="loginButton" class="btn btn-lg btn-default" type="submit">Log in</button>
+            </form>
+
+            <form id="account-form" action="user.html">
+                <button id="signupButton" class="btn btn-lg btn-default" type="submit">Sign up</button>
             </form>
 
           </div>

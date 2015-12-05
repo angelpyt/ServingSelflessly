@@ -84,7 +84,7 @@ footer {
 }
 
 .fa {
-    font-size: 5em;
+    font-size: 3em;
     color: white;
     margin-top: 15px;
     margin-bottom: 15px;
@@ -126,6 +126,76 @@ footer {
 	display: inline-block;
 	margin: 10px;
 	font-size: 13px;
+}
+
+#storySubmitButton {
+	background-color: transparent;
+	color: #3399FF !important;
+	border-style: solid;
+	border-color: #3399FF;
+	border-width: .1em;
+	display: inline-block;
+	margin: 10px;
+	font-size: 13px;
+}
+
+/*review area*/
+#T {
+  font-size: 23px;
+  display: inline;
+  margin-left: 5px;
+}
+
+#R {
+  display: inline;
+}
+
+.voting {
+  display: inline;
+  float: right;
+  margin-left: 5px;
+}
+
+
+#button {
+  display: inline;
+  float: right;
+  margin-left: 10px;
+}
+
+#Date {
+  font-size: 14px;
+  color: gray;
+  padding: 2px;
+}
+
+#H {
+  font-size: 14px;
+  color: gray;
+  padding: 2px;
+}
+
+#C {
+  padding: 2px;
+  font-size: 20px;
+}
+
+#tit {
+  display: inline;
+  margin-top: 10px;
+}
+
+#user {
+  display: inline;
+  float: right;
+  margin-top: 15px;
+}
+
+#out {
+  display:inline;
+  float: right;
+  margin-right: 15px;
+  margin-top: 20px;
 }
 
 
