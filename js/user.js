@@ -5,12 +5,18 @@ $(document).ready(function(){
         $("#signin").show();
         $("#signup").hide();
     });
+    $("#relocate-create").click(function() {
+        console.log("relocate to create account");
+        $("#signin").hide();
+        $("#signup").show();
+    });
 })
 
-Parse.User.logOut();
+// Initialize parse and log user out 
 Parse.initialize("WQe7zzFFG3JYkV9BP6f6Hu6T4q2uSYD9jffBLHcp", "y9hajTS7877LR6ByHV7kqlQ8US1MiSvjIhVO2esd");
+Parse.User.logOut();
 
-//log user out
+
 $("#out").on("click", function() {
     if (currentUser != null) {
         Parse.User.logOut();
@@ -26,7 +32,7 @@ $("#signup").submit(function() {
     user.set("username", $("#new-username").val());
     user.set("password", $("#new-password").val());
     user.set("passwordConfirm", $("#new-password-confirm").val());
-    user.set("reviews", [])
+    user.set("reviews", []);
 
     user.signUp(null, {
             success: function(user) {
@@ -35,7 +41,8 @@ $("#signup").submit(function() {
                     document.location.href = "index.html";
                   },
                   error: function(error) {
-                    alert("Error: " + error.code + " "+ error.message);
+                    // alert("Error: " + error.code + " "+ error.message);
+                    alert(error.message);
                     clearInput();
                   }
                 });
