@@ -263,13 +263,6 @@ footer {
   margin-top: 20px;
 }
 
-<<<<<<< 14cfd5ae7e5378511bf00196972504a83971a4b4
-
-.container, #contactForm {
-  width: 30%;
-  text-align: left;
-}
-
 .voting, #button {
   background-color: transparent;
   color: #3399FF !important;
@@ -288,7 +281,7 @@ footer {
   font-weight: 300;
   text-align: center;
   padding: 0.5em;
->>>>>>> display username at top, changed button style
+
 }
 /*--------------------------user------------------------------*/
 .container {
