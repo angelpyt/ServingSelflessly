@@ -247,7 +247,6 @@ myApp.config(function($stateProvider) {
 
         });
 
-
         Parse.User.logOut();
 
         // user signup form
@@ -267,7 +266,9 @@ myApp.config(function($stateProvider) {
                         document.location.href = "index.html";
                       },
                       error: function(error) {
-                        alert("Error: " + error.message);
+                        var para = document.createElement("p");
+                        var text = document.createTextNode(error.message);
+                        para.appendChild(node);
                         clearInput();
                       }
                     });
@@ -277,8 +278,6 @@ myApp.config(function($stateProvider) {
                     clearInput();
                   }
                 });
-
-                
             }
             return false;
         });
