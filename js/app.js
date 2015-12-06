@@ -225,7 +225,9 @@ myApp.config(function($stateProvider) {
                 $scope.contacts.$save();
                 alert("Thanks for leaving a message, one of our creators will contact you as soon as possible");
             })
-        }    
+        }   
+
+         
 
     })
 
@@ -304,6 +306,7 @@ myApp.config(function($stateProvider) {
             $("#username").val("");
             $("#password").val("");
         }
+
     });
 
 
