@@ -200,6 +200,11 @@ footer {
 }
 
 /*review area*/
+#input {
+  padding-right: 100px;
+  padding-left: 100px;
+  background: rgb(216,216,216);
+}
 #T {
   font-size: 23px;
   display: inline;
@@ -258,10 +263,32 @@ footer {
   margin-top: 20px;
 }
 
+<<<<<<< 14cfd5ae7e5378511bf00196972504a83971a4b4
 
-.container#contactForm {
+.container, #contactForm {
   width: 30%;
   text-align: left;
+}
+
+.voting, #button {
+  background-color: transparent;
+  color: #3399FF !important;
+  border-style: solid;
+  border-color: #3399FF;
+  border-width: .01em;
+  float: right;
+  display: inline-block;
+  margin: 10px;
+  font-size: 13px;
+}
+#forumHeader {
+  text-align: center;
+  font-size: 60px;
+  color: white;
+  font-weight: 300;
+  text-align: center;
+  padding: 0.5em;
+>>>>>>> display username at top, changed button style
 }
 /*--------------------------user------------------------------*/
 .container {

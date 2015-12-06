@@ -62,18 +62,21 @@ myApp.config(function($stateProvider) {
     .controller('ForumController', function($scope){
         // if there is a current user then the signup should turn to logout
         if (currentUser != null) {
-            $('#loginButton').hide();
             $("#signupButton").text("Logout");
             $("#account-form").attr("action", "");
         }
 
         //Rating 
-        $('#rating').raty();
+        // $('#rating').raty();
         Parse.initialize("WQe7zzFFG3JYkV9BP6f6Hu6T4q2uSYD9jffBLHcp", "y9hajTS7877LR6ByHV7kqlQ8US1MiSvjIhVO2esd");
 
         var Review = Parse.Object.extend('Review');
 
         var currentUser = Parse.User.current();
+
+        if(currentUser) {
+            $("#signupButton").text(currentUser.get('username'));
+        }
 
         //click event when write is submitted
         $('#write').submit(function() {
@@ -88,6 +91,13 @@ myApp.config(function($stateProvider) {
                 review.set('votes', 0);
                 review.set('helpful', 0);
                 review.set('user', Parse.User.current());
+
+                if (title.val().trim() == "" || content.val().trim == "") {
+                    alert("You must include a title and review content!");
+                    return false;
+                } 
+
+
 
                 review.save(null, {
                     success:function() {
@@ -153,6 +163,7 @@ myApp.config(function($stateProvider) {
             var voteUp = $("<button class='voting'><span class='glyphicon glyphicon-thumbs-up'></span></button>");
             var voteDown = $("<button class='voting'><span class='glyphicon glyphicon-thumbs-down'></span></button>");
             var button = $('<button id="button" class="btn-warning btn-xs"><span class="glyphicon glyphicon-remove"></span></button>');
+
             button.click(function() {
                 if (currentUser.id == user.id) {
                     item.destroy({
@@ -179,7 +190,7 @@ myApp.config(function($stateProvider) {
                 Helpful.text(helpful + " out of " + votes + " found this review helpful.");
             }
 
-            div.append(Rate);
+            // div.append(Rate);
             div.append(Title);
             div.append(button);
             div.append(voteDown);
@@ -250,6 +261,16 @@ myApp.config(function($stateProvider) {
         });
 
         Parse.User.logOut();
+
+
+        //log user out
+        $("#out").on("click", function() {
+            if (currentUser != null) {
+                Parse.User.logOut();
+                location.reload();
+                alert("You have successfully logged out");
+            }
+        })
 
         // user signup form
         $("#signup-form").submit(function() {

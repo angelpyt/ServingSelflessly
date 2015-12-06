@@ -17,7 +17,7 @@ Parse.User.logOut();
 Parse.initialize("WQe7zzFFG3JYkV9BP6f6Hu6T4q2uSYD9jffBLHcp", "y9hajTS7877LR6ByHV7kqlQ8US1MiSvjIhVO2esd");
 
 //log user out
-$("#out").on("click", function() {
+$(".log-out").on("click", function() {
     if (currentUser != null) {
         Parse.User.logOut();
         location.reload();
