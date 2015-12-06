@@ -1,22 +1,22 @@
 // only shows login option if user clicks login
 $(document).ready(function(){
-    $("#login_id").click(function(){
-        console.log("clicked");
+    $("#relocate-login").click(function(){
+        console.log("signup");
         $("#signin").show();
         $("#signup").hide();
     });
-    $("#relocate-create").click(function() {
-        console.log("relocate to create account");
+    $("#relocate-create").click(function(){
+        console.log("signin");
         $("#signin").hide();
         $("#signup").show();
     });
+
 })
 
-// Initialize parse and log user out 
-Parse.initialize("WQe7zzFFG3JYkV9BP6f6Hu6T4q2uSYD9jffBLHcp", "y9hajTS7877LR6ByHV7kqlQ8US1MiSvjIhVO2esd");
 Parse.User.logOut();
+Parse.initialize("WQe7zzFFG3JYkV9BP6f6Hu6T4q2uSYD9jffBLHcp", "y9hajTS7877LR6ByHV7kqlQ8US1MiSvjIhVO2esd");
 
-
+//log user out
 $("#out").on("click", function() {
     if (currentUser != null) {
         Parse.User.logOut();
@@ -32,7 +32,7 @@ $("#signup").submit(function() {
     user.set("username", $("#new-username").val());
     user.set("password", $("#new-password").val());
     user.set("passwordConfirm", $("#new-password-confirm").val());
-    user.set("reviews", []);
+    user.set("reviews", [])
 
     user.signUp(null, {
             success: function(user) {
@@ -41,8 +41,7 @@ $("#signup").submit(function() {
                     document.location.href = "index.html";
                   },
                   error: function(error) {
-                    // alert("Error: " + error.code + " "+ error.message);
-                    alert(error.message);
+                    alert("Error: " + error.code + " "+ error.message);
                     clearInput();
                   }
                 });
@@ -73,76 +72,6 @@ var clear = function() {
     $("#new-username").val("");
     $("#new-password").val("");
 }
-
-
-// // Create application with dependency 'firebase'
-// var myApp = angular.module('myApp', ['firebase']);
-// // Bind controller, passing in $scope, $firebaseAuth, $firebaseArray, $firebaseObject
-// myApp.controller('myCtrl', function($scope, $firebaseAuth, $firebaseArray, $firebaseObject){
-//     // Create a variable 'ref' to reference your firebase storage
-//     var ref = new Firebase("https://ss-user-app.firebaseio.com/");
-
-//     var usersRef = ref.child("users");
-
-//     // Create authorization object that referes to firebase
-//     $scope.authObj = $firebaseAuth(ref);
-
-//     // Create a firebaseObject of your users, and store this as part of $scope
-//     $scope.users = $firebaseObject(usersRef);
-
-//     // Test if already logged in
-//     var authData = $scope.authObj.$getAuth();
-//     if (authData) {
-//         $scope.userId = authData.uid;
-//     } 
-//     // SignUp function
-//     $scope.signUp = function() {
-//         // Create user
-//         $scope.authObj.$createUser({
-//             email: $scope.email,
-//             password: $scope.password,          
-//         })
-
-//         // Once the user is created, call the logIn function
-//         .then($scope.logIn)
-
-//         // Once logged in, set and save the user data
-//         .then(function(authData) {
-//             $scope.userId = authData.uid;
-//             $scope.users[authData.uid] ={
-//                 username: $scope.username,
-//             }
-//             $scope.users.$save()
-//         })
-
-//         // Catch any errors
-//         .catch(function(error) {
-//             console.error("Error: ", error);
-//         });
-//     }
-
-//     // SignIn function
-//     $scope.signIn = function() {
-//         $scope.logIn().then(function(authData){
-//             $scope.userId = authData.uid;
-//         })
-//     }
-
-//     // LogIn function
-//     $scope.logIn = function() {
-//         console.log('log in')
-//         return $scope.authObj.$authWithPassword({
-//             email: $scope.email,
-//             password: $scope.password
-//         })
-//     }
-
-//     // LogOut function
-//     $scope.logOut = function() {
-//         $scope.authObj.$unauth()
-//         $scope.userId = false
-//     }
-
 
 function checkPass() {
     //Store the password field objects into variables ...

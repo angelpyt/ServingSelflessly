@@ -70,13 +70,15 @@
                 <button ng-click="logOut()" id="logoutButton" class="btn btn-lg btn-default" type="submit">Log out</button>
             </form> -->
 
-            <form id="account-form" action="user.html">
-                <button id="loginButton" class="btn btn-lg btn-default" type="submit">Log in</button>
+
+            <form id="account-form" action="templates/user.html">
+                <button id="loginButton" ui-sref="user" class="btn btn-lg btn-default" type="submit">Sign Up</button>
             </form>
 
-            <form id="account-form" action="user.html">
-                <button id="signupButton" class="btn btn-lg btn-default" type="submit">Sign up</button>
+            <form id="account-form">
+              <button id="loginButton" ui-sref="user" class="btn btn-lg btn-default" type="submit">Log in</button>
             </form>
+
 
           </div>
         </div>

@@ -1,0 +1,28 @@
+<div class="container" id="signup">
+	<div id="logbox">
+		<form id="signup-form">
+		  <h1>create an account</h1>
+		  <input id="new-username" name="user[name]" type="text" placeholder="What's your username?" pattern="^[\w]{3,16}$" autofocus="autofocus" required="required" class="input pass"/>
+		  <input id="new-password" name="user[password]" id="pass1" type="password" placeholder="Choose a password" required="required" class="input pass"/>
+		  <input id="new-password-confirm" name="user[password2]" id="pass2" type="password" placeholder="Confirm password" required="required" class="input pass"/>
+		  <span id="confirmMessage" class="confirmMessage"></span>
+		<!--               <input ng-model="email" name="user[email]" type="email" placeholder="Email address" class="input pass"/> -->
+		  <input type="submit" value="Sign me up!" class="inputButton" id="signup-button"/>
+		  <div class="text-center">already have an account? <button type="button" id="relocate-login">login</button>
+          </div>
+		</form>
+	</div>
+</div>
+
+<div class="container" id="signin">
+	<div id="logbox">
+		<form id="signin-form">
+		  <h1>account login</h1>
+		  <input id="username" name="user[name]" type="text" placeholder="enter your username" class="input pass"/>
+		  <input id="password" name="user[password]" type="password" placeholder="enter your password" required="required" class="input pass"/>
+		  <input type="submit" value="Sign me in!" class="inputButton"/>
+          <div class="text-center">New user?<button type="button" id="relocate-create">Create an account</button>
+          </div>
+		</form>
+	</div>
+</div>

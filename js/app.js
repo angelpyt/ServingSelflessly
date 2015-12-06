@@ -23,11 +23,11 @@ myApp.config(function($stateProvider) {
         templateUrl: 'templates/about.html',
         controller: 'AboutController'     
     })
-    // .state('user', {
-    //     url:'/user',
-    //     templateUrl: 'templates/user.html',
-    //     controller: 'UserController'     
-    // })
+    .state('user', {
+        url:'/user',
+        templateUrl: 'templates/user.html',
+        controller: 'UserController'     
+    })
 })
 
     // Home page controller
@@ -200,7 +200,7 @@ myApp.config(function($stateProvider) {
         $http.get('data/about.json').success(function(response) {
         $scope.aboutData = response;
         console.log($scope.aboutData)
-        })
+        });
 
         // Contact box
         var ref = new Firebase("https://ss-contact-app.firebaseio.com/");
@@ -229,8 +229,82 @@ myApp.config(function($stateProvider) {
 
     })
 
-    // .controller('UserController', function($scope){
-    //   $scope.url = "http://www.quicksprout.com/images/foggygoldengatebridge.jpg"
-    // })
+    .controller('UserController', function($scope){
+
+        Parse.initialize("WQe7zzFFG3JYkV9BP6f6Hu6T4q2uSYD9jffBLHcp", "y9hajTS7877LR6ByHV7kqlQ8US1MiSvjIhVO2esd");
+
+        $(document).ready(function(){
+            $("#relocate-login").click(function(){
+                console.log("signup");
+                $("#signin").show();
+                $("#signup").hide();
+            });
+            $("#relocate-create").click(function(){
+                console.log("signin");
+                $("#signin").hide();
+                $("#signup").show();
+            });
+
+        });
+
+
+        Parse.User.logOut();
+
+        // user signup form
+        $("#signup-form").submit(function() {
+            if ($("#new-username").val() == "" && $("#new-password").val() == "") {
+                alert("Cannot signup an empty account!");
+            } else {
+                var user = new Parse.User();
+                user.set("username", $("#new-username").val());
+                user.set("password", $("#new-password").val());
+                user.set("reviews", [])
+
+                user.signUp(null, {
+                  success: function(user) {
+                    Parse.User.logIn($("#new-username").val(), $("#new-password").val(), {
+                      success: function(user) {
+                        document.location.href = "index.html";
+                      },
+                      error: function(error) {
+                        alert("Error: " + error.message);
+                        clearInput();
+                      }
+                    });
+                  },
+                  error: function(user, error) {
+                    alert("Error: " + error.message);
+                    clearInput();
+                  }
+                });
+
+                
+            }
+            return false;
+        });
+
+        // user sign in form
+        $("#signin-form").submit(function() {
+            Parse.User.logIn($("#username").val(), $("#password").val(), {
+                success: function(user) {
+                    document.location.href = "index.html";
+                },
+                error: function(error) {
+                    console.log("Error: " + error.message);
+                    clearInput();   
+                }   
+            });
+
+            return false;
+        });
+
+        // clears all input fields
+        var clearInput = function() {
+            $("#new-username").val("");
+            $("#new-password").val("");
+            $("#username").val("");
+            $("#password").val("");
+        }
+    });
 
 
