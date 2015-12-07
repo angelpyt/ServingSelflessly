@@ -61,20 +61,20 @@
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-              <li><a ui-sref="home" style="color:white">HOME</a></li>
-              <li><a ui-sref="map" style="color:white">MAP</a></li>
-              <li><a ui-sref="forum" style="color:white">FORUM</a></li> 
-              <li><a ui-sref="about" style="color:white">ABOUT</a></li>
+              <li><a ui-sref="home" data-toggle="collapse" data-target=".navbar-collapse.in" style="color:white">HOME</a></li>
+              <li><a ui-sref="map" data-toggle="collapse" data-target=".navbar-collapse.in" style="color:white">MAP</a></li>
+              <li><a ui-sref="forum" data-toggle="collapse" data-target=".navbar-collapse.in" style="color:white">STORY</a></li> 
+              <li><a ui-sref="about" data-toggle="collapse" data-target=".navbar-collapse.in" style="color:white">ABOUT</a></li>
             </ul>
 
-            <form id="account-form out" class="log-out">
+<!--             <form id="account-form out" class="log-out">
                 <button id="logoutButton" class="btn btn-lg btn-default" type="submit">Log out</button>
             </form>
 
 
             <form id="account-form" action="templates/user.html">
                 <button id="signupButton" ui-sref="user" class="btn btn-lg btn-default" type="submit">Sign Up</button>
-            </form>
+            </form> -->
 <!-- 
             <form id="account-form">
               <button id="loginButton" ui-sref="user" class="btn btn-lg btn-default" type="submit">Log in</button>

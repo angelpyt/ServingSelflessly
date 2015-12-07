@@ -29,6 +29,8 @@ myApp.config(function($stateProvider) {
         controller: 'UserController'     
     })
 })
+    
+
 
     // Home page controller
     .controller('HomeController', function($scope){

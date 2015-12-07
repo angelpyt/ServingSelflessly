@@ -209,8 +209,8 @@ footer {
 
 /*review area*/
 #input {
-  padding-right: 100px;
-  padding-left: 100px;
+  padding-right: 50px;
+  padding-left: 50px;
   background: rgb(216,216,216);
 }
 #T {
@@ -284,7 +284,7 @@ footer {
 }
 #forumHeader {
   text-align: center;
-  font-size: 60px;
+  font-size: 30px;
   color: white;
   font-weight: 300;
   text-align: center;
@@ -292,13 +292,34 @@ footer {
 }
 
 .well {
-  margin-right: 100px;
-  margin-left: 100px;
+  margin-right: 50px;
+  margin-left: 50px;
 }
 
 #contactForm.container {
   max-width: 60%;
   text-align: left;
+}
+
+
+@media screen and (min-width: 768px )  {
+  #input {
+    padding-right: 100px;
+    padding-left: 100px;
+    background: rgb(216,216,216);
+  }
+  .well {
+    margin-right: 100px;
+    margin-left: 100px;
+  }
+  #forumHeader {
+    text-align: center;
+    font-size: 60px;
+    color: white;
+    font-weight: 300;
+    text-align: center;
+    padding: 0.5em;
+  }
 }
 /*--------------------------user------------------------------*/
 .container {
