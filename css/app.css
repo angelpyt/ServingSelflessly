@@ -68,6 +68,14 @@ footer {
   line-height: 3em;
 }
 
+#introSection {
+  background-color: rgb(240,240,240);
+}
+
+#mapSection {
+  padding-top: 100px;
+}
+
 .jumbotron {
   background-color: white;
     -webkit-border-radius: 0 !important;
