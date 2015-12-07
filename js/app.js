@@ -108,7 +108,7 @@ myApp.config(function($stateProvider) {
                     success:function() {
                         title.val('');
                         content.val('');
-                        $('#rating').raty({score: 0});
+                        // $('#rating').raty({score: 0});
                         getData();
                     }
                 })
@@ -138,7 +138,7 @@ myApp.config(function($stateProvider) {
                 rating += d.get('rating');
                 addItem(d);
             })
-            $("#avgRating").raty({score:rating/(data.length), readOnly: true});
+            // $("#avgRating").raty({score:rating/(data.length), readOnly: true});
         }
 
         //this function takes in an item, adds it to the sreen
@@ -162,7 +162,7 @@ myApp.config(function($stateProvider) {
             var D = $('<div id = "Date"></div>');
             D.text(" Created on " + date + " by " + item.get('username')); 
             var Rate = $('<div id = "R"></div>');
-            Rate.raty({score: rating, readOnly: true});
+            // Rate.raty({score: rating, readOnly: true});
             var Helpful = $('<div id = "H"></div>');
 
             var voteUp = $("<button class='voting'><span class='glyphicon glyphicon-thumbs-up'></span></button>");
@@ -170,7 +170,15 @@ myApp.config(function($stateProvider) {
             var button = $('<button id="button" class="btn-warning btn-xs"><span class="glyphicon glyphicon-remove"></span></button>');
 
             button.click(function() {
-                if (currentUser.id == user.id) {
+                // if (currentUser.id == user.id) {
+                //     item.destroy({
+                //         success:getData
+                //     })
+                // }
+                if (currentUser == null) {
+                    alert ("Sign in to review");
+                    window.location.assign("/user.html")
+                } else if (curremtUser.id == user.id){
                     item.destroy({
                         success:getData
                     })
@@ -178,24 +186,37 @@ myApp.config(function($stateProvider) {
             })
 
             voteUp.on("click", function() {
-                item.set("helpful", helpful +=1);
-                item.set("votes", votes += 1);
-                item.save();
-                getData();
+                if (currentUser == null) {
+                    alert ("Sign in to vote");
+                } else {
+                    item.set("helpful", helpful +=1);
+                    item.set("votes", votes += 1);
+                    item.save();
+                    getData();
+                }
             });
 
             voteDown.on("click", function() {
-                item.set("votes", votes += 1);
-                item.save();
-                getData();
-
+                if (currentUser == null) {
+                    alert ("Sign in to vote");
+                } else {
+                    item.set("votes", votes += 1);
+                    item.save();
+                    getData();
+                }
             });
 
             if (votes != 0) {
                 Helpful.text(helpful + " out of " + votes + " found this review helpful.");
+            } else {
+                Helpful.text("This review has not been voted yet. Be the first!")
             }
 
-            // div.append(Rate);
+            // if (currentUser != null && currentUser.id == user.id) {
+            //     div.append(button);
+            // }
+
+            div.append(Rate);
             div.append(Title);
             div.append(button);
             div.append(voteDown);
@@ -204,6 +225,7 @@ myApp.config(function($stateProvider) {
             div.append(Content);
             div.append(Helpful);
 
+            
             $('#reviewArea').append(div);
         }
 
