@@ -62,7 +62,7 @@ myApp.config(function($stateProvider) {
     .controller('ForumController', function($scope){
         // if there is a current user then the signup should turn to logout
         if (currentUser != null) {
-            $("#signupButton").text("Logout");
+            // $("#signupButton").text("Logout");
             $("#account-form").attr("action", "");
         }
 
@@ -76,6 +76,7 @@ myApp.config(function($stateProvider) {
 
         if(currentUser) {
             $("#signupButton").text(currentUser.get('username'));
+            $("#logoutButton").show();
         }
 
         //click event when write is submitted
