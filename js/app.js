@@ -75,8 +75,10 @@ myApp.config(function($stateProvider) {
         var currentUser = Parse.User.current();
 
         if(currentUser) {
-            $("#signupButton").text(currentUser.get('username'));
+            $("#signupButton").text("Hello, "+currentUser.get('username'));
             $("#logoutButton").show();
+        } else {
+            $("#logoutButton").hide();
         }
 
         //click event when write is submitted
@@ -156,7 +158,7 @@ myApp.config(function($stateProvider) {
             var Content = $('<div id = "C"></div>');
             Content.text(content);
             var D = $('<div id = "Date"></div>');
-            D.text(" Created on " + date + " by " + item.get('username')); 
+            D.text(" Created on " + date + " by " + currentUser.get('username')); 
             var Rate = $('<div id = "R"></div>');
             Rate.raty({score: rating, readOnly: true});
             var Helpful = $('<div id = "H"></div>');
