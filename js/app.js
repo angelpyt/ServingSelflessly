@@ -158,7 +158,7 @@ myApp.config(function($stateProvider) {
             var Content = $('<div id = "C"></div>');
             Content.text(content);
             var D = $('<div id = "Date"></div>');
-            D.text(" Created on " + date + " by " + currentUser.get('username')); 
+            D.text(" Created on " + date + " by " + item.get('username')); 
             var Rate = $('<div id = "R"></div>');
             Rate.raty({score: rating, readOnly: true});
             var Helpful = $('<div id = "H"></div>');
@@ -283,6 +283,7 @@ myApp.config(function($stateProvider) {
                 var user = new Parse.User();
                 user.set("username", $("#new-username").val());
                 user.set("password", $("#new-password").val());
+                user.set("passwordConfim", $("#new-password-confirm").val());
                 user.set("reviews", [])
 
                 user.signUp(null, {
