@@ -64,30 +64,23 @@ myApp.config(function($stateProvider) {
 
     // Forum page controller
     .controller('ForumController', function($scope){
-        // if there is a current user then the signup should turn to logout
-        if (currentUser != null) {
-            $("#signupButton").text("Logout");
-            $("#account-form").attr("action", "");
-        }
 
         $("#logoutButton").on("click", function() {
             if (currentUser != null) {
-                $("#signup").text("Sign Up or Sign In");
                 Parse.User.logOut();
                 location.reload();
+                alert("You have successfully logged out");
             }
         })
 
-        //Rating 
-        // $('#rating').raty();
         Parse.initialize("WQe7zzFFG3JYkV9BP6f6Hu6T4q2uSYD9jffBLHcp", "y9hajTS7877LR6ByHV7kqlQ8US1MiSvjIhVO2esd");
 
         var Review = Parse.Object.extend('Review');
 
         var currentUser = Parse.User.current();
 
+        // if there is a current user then the signup should turn to logout
         if(currentUser) {
-            // $("#signupButton").text("Hello, "+currentUser.get('username'));
             $("#signupButton").hide();
             // $("#logoutButton").show();
             $("#logoutButton").show().text(currentUser.get('username') + ", Log out");
@@ -303,26 +296,17 @@ myApp.config(function($stateProvider) {
         Parse.User.logOut();
 
 
-        //log user out
-        $("#out").on("click", function() {
-            if (currentUser != null) {
-                Parse.User.logOut();
-                location.reload();
-                alert("You have successfully logged out");
-            }
-        })
-
         // user signup form
         $("#signup-form").submit(function() {
-            if ($("#new-username").val() == "" && $("#new-password").val() == "") {
-                alert("Cannot signup an empty account!");
-            } else {
-                var user = new Parse.User();
+            var username = $('#new-username').val();
+            var password = $('#new-password').val();
+            var passwordConfirm = $('#new-password-confirm').val();
+            if(password === passwordConfirm) {
+            var user = new Parse.User();
                 user.set("username", $("#new-username").val());
                 user.set("password", $("#new-password").val());
                 user.set("passwordConfim", $("#new-password-confirm").val());
                 user.set("reviews", [])
-
                 user.signUp(null, {
                   success: function(user) {
                     Parse.User.logIn($("#new-username").val(), $("#new-password").val(), {
@@ -342,9 +326,10 @@ myApp.config(function($stateProvider) {
                     clearInput();
                   }
                 });
+            } else {
+                alert('Passwords don\'t match');
             }
-            return false;
-        });
+        })
 
         // user sign in form
         $("#signin-form").submit(function() {
