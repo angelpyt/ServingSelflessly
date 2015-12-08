@@ -16,14 +16,6 @@ $(document).ready(function(){
 Parse.User.logOut();
 Parse.initialize("WQe7zzFFG3JYkV9BP6f6Hu6T4q2uSYD9jffBLHcp", "y9hajTS7877LR6ByHV7kqlQ8US1MiSvjIhVO2esd");
 
-//log user out
-$(".log-out").on("click", function() {
-    if (currentUser != null) {
-        Parse.User.logOut();
-        location.reload();
-        alert("You have successfully logged out");
-    }
-})
 
 //sign up for user
 $("#signup").submit(function() {

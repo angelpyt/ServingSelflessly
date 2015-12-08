@@ -64,9 +64,17 @@ myApp.config(function($stateProvider) {
     .controller('ForumController', function($scope){
         // if there is a current user then the signup should turn to logout
         if (currentUser != null) {
-            // $("#signupButton").text("Logout");
+            $("#signupButton").text("Logout");
             $("#account-form").attr("action", "");
         }
+
+        $("#logoutButton").on("click", function() {
+            if (currentUser != null) {
+                $("#signup").text("Sign Up or Sign In");
+                Parse.User.logOut();
+                location.reload();
+            }
+        })
 
         //Rating 
         // $('#rating').raty();
