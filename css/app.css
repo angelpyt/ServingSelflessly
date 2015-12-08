@@ -108,24 +108,34 @@ footer {
   padding-right: 3em;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d56bd5f4fc74b0cd5388b36e5b8c64c40555b01b
 
 /*footer */
 footer {
   text-align: center;
 }
 
+<<<<<<< HEAD
 /*---------------------Foother-----------------------------*/
 
+=======
+>>>>>>> d56bd5f4fc74b0cd5388b36e5b8c64c40555b01b
 #contact-title {
   padding-bottom: 50px;
   text-align: center;
 }
 
 .fa {
+<<<<<<< HEAD
 
     font-size: 2em;
     font-size: 50px;
+=======
+    font-size: 2em;
+>>>>>>> d56bd5f4fc74b0cd5388b36e5b8c64c40555b01b
     color: white;
     margin-top: 15px;
     margin-bottom: 15px;
@@ -137,8 +147,11 @@ footer {
 .fa:hover {
     color: #33CCFF;
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> d56bd5f4fc74b0cd5388b36e5b8c64c40555b01b
 @media screen and (max-width: 768px) {
   .fa{
     font-size: 30px;
