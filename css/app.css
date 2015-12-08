@@ -501,6 +501,13 @@ h1, input {
   font-family: "DIN", "Helvetica Neue", "Arial"
 }
 
+.table {
+  background-color: white;
+}
+
+#map {
+  height: 600px;
+}
 
 
 /*!!!!!!*/

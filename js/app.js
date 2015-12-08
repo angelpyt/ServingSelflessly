@@ -46,18 +46,131 @@ myApp.config(function($stateProvider) {
 
     // Map page controller
     .controller('MapController', function($scope, $http){
-        // $http.get('data/about.json').success(function(response) {
-        // $scope.mapData = response;
-        // )
+        $http.get('data/data.json').then(function(response) {
+            var data = response.data
+            $scope.mapData = data
+            $scope.sortType = 'name'
+            buildMap(data)
+        })
 
-        var map = L.map('map').setView([40, -100], 5);
-        var layer = L.tileLayer('https://api.mapbox.com/v4/mapbox.dark/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibGlzYWxseSIsImEiOiJjaWZzZWs2M3oxOWw2b2VrcnRobzh4OGRiIn0.fkN85EVGVV_JCobEVLwrJQ');
-        layer.addTo(map)
+        var buildMap = function(data) {
+            // console.log(data)
+            var map = L.map('map').setView([40, -100], 5);
+            var layer = L.tileLayer('https://api.mapbox.com/v4/mapbox.high-contrast/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibGlzYWxseSIsImEiOiJjaWZzZWs2M3oxOWw2b2VrcnRobzh4OGRiIn0.fkN85EVGVV_JCobEVLwrJQ');
+            layer.addTo(map);
+            buildData(data, map); 
 
-        buildMap($scope.mapData, map)
+        }
 
-        var buildMap = function(data, map) {
-            // build map function heres
+        var buildData = function(data, map) {
+            var ntee1 = new L.layerGroup([]);
+            var ntee2 = new L.layerGroup([]);
+            var ntee3 = new L.layerGroup([]);
+            var ntee4 = new L.layerGroup([]);
+            var ntee5 = new L.layerGroup([]);
+            var ntee6 = new L.layerGroup([]);
+            var ntee7 = new L.layerGroup([]);
+            var ntee8 = new L.layerGroup([]);
+            var ntee9 = new L.layerGroup([]);
+
+
+            for (var i = 0; i < data.length; i++) {
+                var name = data[i].name;
+                var nccsweb = data[i].nccsweb;
+                var guidestar = data[i].guidestar;
+                var lat = data[i].lat;
+                var lng = data[i].lng;
+                var id = data[i].id;
+
+                if (id == "1") {
+                    var circle = new L.circleMarker([lat, lng], {
+                        radius: 5,
+                        fillOpacity: 0.5,
+                        color: "red"
+                    });
+                    circle.bindPopup(name + "<br>" + "more information".link(guidestar) + "<br>" + id);
+                    circle.addTo(ntee1);
+                } else if (id == "2") {
+                    var circle = new L.circleMarker([lat, lng], {
+                        radius: 5,
+                        fillOpacity: 0.5,
+                        color: "blue"
+                    });
+                    circle.bindPopup(name + "<br>" + "more information".link(guidestar) + "<br>" + id);
+                    circle.addTo(ntee2);
+                } else if (id == "3") {
+                    var circle = new L.circleMarker([lat, lng], {
+                        radius: 5,
+                        fillOpacity: 0.5,
+                        color: "green"
+                    });
+                    circle.bindPopup(name + "<br>" + "more information".link(guidestar) + "<br>" + id);
+                    circle.addTo(ntee3);
+                } else if (id == "4") {
+                    var circle = new L.circleMarker([lat, lng], {
+                        radius: 5,
+                        fillOpacity: 0.5,
+                        color: "light-blue"
+                    });
+                    circle.bindPopup(name + "<br>" + "more information".link(guidestar) + "<br>" + id);
+                    circle.addTo(ntee4);
+                } else if (id == "5") {
+                    var circle = new L.circleMarker([lat, lng], {
+                        radius: 5,
+                        fillOpacity: 0.5,
+                        color: "pink"
+                    });
+                    circle.bindPopup(name + "<br>" + "more information".link(guidestar) + "<br>" + id);
+                    circle.addTo(ntee5);
+                } else if (id == "6") {
+                    var circle = new L.circleMarker([lat, lng], {
+                        radius: 5,
+                        fillOpacity: 0.5,
+                        color: "purple"
+                    });
+                    circle.bindPopup(name + "<br>" + "more information".link(guidestar) + "<br>" + id);
+                    circle.addTo(ntee6);
+                } else if (id == "7") {
+                    var circle = new L.circleMarker([lat, lng], {
+                        radius: 5,
+                        fillOpacity: 0.5,
+                        color: "orange"
+                    });
+                    circle.bindPopup(name + "<br>" + "more information".link(guidestar) + "<br>" + id);
+                    circle.addTo(ntee7);
+                } else if (id == "8") {
+                    var circle = new L.circleMarker([lat, lng], {
+                        radius: 5,
+                        fillOpacity: 0.5,
+                        color: "white"
+                    });
+                    circle.bindPopup(name + "<br>" + "more information".link(guidestar) + "<br>" + id);
+                    circle.addTo(ntee8);
+                } else {
+                    var circle = new L.circleMarker([lat, lng], {
+                        radius: 5,
+                        fillOpacity: 0.5,
+                        color: "black"
+                    });
+                    circle.bindPopup(name + "<br>" + "more information".link(guidestar) + "<br>" + id);
+                    circle.addTo(ntee9);
+                }
+
+            }
+
+            var layer = {
+                "Arts, Culture & Humanities": ntee1,
+                "Education": ntee2,
+                "Environment and Animals": ntee3,
+                "Health": ntee4,
+                "Human Services": ntee5,
+                "International Foreign Affairs": ntee6,
+                "Public, Societal Benefit": ntee7,
+                "Religion Related": ntee8,
+                "Mutal/Membership Benefit": ntee9
+            }
+
+            L.control.layers(null, layer).addTo(map);
         }
         
     })
