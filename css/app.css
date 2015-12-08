@@ -108,26 +108,19 @@ footer {
   padding-right: 3em;
 }
 
-<<<<<<< 980ded0ea667891387dfadb3ce29d47f6a435d1a
 
 /*footer */
 footer {
   text-align: center;
 }
-=======
-/*---------------------Foother-----------------------------*/
->>>>>>> homepage & css
+
 #contact-title {
   padding-bottom: 50px;
   text-align: center;
 }
 
 .fa {
-<<<<<<< 980ded0ea667891387dfadb3ce29d47f6a435d1a
     font-size: 2em;
-=======
-    font-size: 50px;
->>>>>>> homepage & css
     color: white;
     margin-top: 15px;
     margin-bottom: 15px;
@@ -139,9 +132,6 @@ footer {
 .fa:hover {
     color: #33CCFF;
 }
-<<<<<<< 980ded0ea667891387dfadb3ce29d47f6a435d1a
-=======
-
 @media screen and (max-width: 768px) {
   .fa{
     font-size: 30px;
