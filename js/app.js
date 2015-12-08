@@ -77,8 +77,10 @@ myApp.config(function($stateProvider) {
         var currentUser = Parse.User.current();
 
         if(currentUser) {
-            $("#signupButton").text("Hello, "+currentUser.get('username'));
-            $("#logoutButton").show();
+            // $("#signupButton").text("Hello, "+currentUser.get('username'));
+            $("#signupButton").hide();
+            // $("#logoutButton").show();
+            $("#logoutButton").show().text(currentUser.get('username') + ", Log out");
         } else {
             $("#logoutButton").hide();
         }
@@ -98,12 +100,9 @@ myApp.config(function($stateProvider) {
                 review.set('user', Parse.User.current());
 
                 if (title.val().trim() == "" || content.val().trim == "") {
-                    alert("You must include a title and review content!");
+                    alert("You must include a title and a content!");
                     return false;
                 } 
-
-
-
                 review.save(null, {
                     success:function() {
                         title.val('');
@@ -113,7 +112,8 @@ myApp.config(function($stateProvider) {
                     }
                 })
             } else {
-                alert("Sign in to review");
+                alert("Sign in first!");
+                window.location.assign("/#/user")
             }
             return false;
         })
@@ -170,24 +170,25 @@ myApp.config(function($stateProvider) {
             var button = $('<button id="button" class="btn-warning btn-xs"><span class="glyphicon glyphicon-remove"></span></button>');
 
             button.click(function() {
-                // if (currentUser.id == user.id) {
-                //     item.destroy({
-                //         success:getData
-                //     })
-                // }
-                if (currentUser == null) {
-                    alert ("Sign in to review");
-                    window.location.assign("/user.html")
-                } else if (curremtUser.id == user.id){
+                if (currentUser.id == user.id) {
                     item.destroy({
                         success:getData
                     })
                 }
+                // if (currentUser == null) {
+                //     alert ("Sign in to delete");
+                //     window.location.assign("/#/user")
+                // } else if (curremtUser.id == user.id){
+                //     item.destroy({
+                //         success:getData
+                //     })
+                // }
             })
 
             voteUp.on("click", function() {
                 if (currentUser == null) {
                     alert ("Sign in to vote");
+                    window.location.assign("/#/user")
                 } else {
                     item.set("helpful", helpful +=1);
                     item.set("votes", votes += 1);
@@ -199,6 +200,7 @@ myApp.config(function($stateProvider) {
             voteDown.on("click", function() {
                 if (currentUser == null) {
                     alert ("Sign in to vote");
+                    window.location.assign("/#/user")
                 } else {
                     item.set("votes", votes += 1);
                     item.save();
@@ -207,18 +209,17 @@ myApp.config(function($stateProvider) {
             });
 
             if (votes != 0) {
-                Helpful.text(helpful + " out of " + votes + " found this review helpful.");
+                Helpful.text(helpful + " out of " + votes + " found this story awesome.");
             } else {
-                Helpful.text("This review has not been voted yet. Be the first!")
+                Helpful.text("This story has not been voted yet. Be the first!")
             }
 
-            // if (currentUser != null && currentUser.id == user.id) {
-            //     div.append(button);
-            // }
+            if (currentUser.id == user.id) {
+                div.append(button);
+            }
 
             div.append(Rate);
             div.append(Title);
-            div.append(button);
             div.append(voteDown);
             div.append(voteUp);
             div.append(D);
