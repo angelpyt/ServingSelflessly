@@ -95,23 +95,29 @@ footer {
   padding-right: 3em;
 }
 
+
 /*footer */
+footer {
+  text-align: center;
+}
 #contact-title {
   padding-bottom: 50px;
   text-align: center;
 }
 
 .fa {
-    font-size: 3em;
+    font-size: 2em;
     color: white;
     margin-top: 15px;
     margin-bottom: 15px;
+    margin-left: 30px;
+    margin-right: 30px;
+
 }
 
 .fa:hover {
     color: #33CCFF;
 }
-
 /*---------------------about page-----------------------------*/
 
 .jumbotron .quotes {
