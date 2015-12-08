@@ -131,7 +131,7 @@ myApp.config(function($stateProvider) {
 
         // a function to build the list
         var buildList = function(data) {
-            var rating = 0;
+            // var rating = 0;
 
             $('#reviewArea').empty();
             data.forEach(function(d){
@@ -143,14 +143,13 @@ myApp.config(function($stateProvider) {
 
         //this function takes in an item, adds it to the sreen
         var addItem = function(item) {
-            //console.log('addItem', item);
             var title = item.get('title');
             var content = item.get('content');
             var rating = item.get('rating');
             var date = item.get('date');
             var votes = item.get('votes');
             var helpful = item.get('helpful');
-            var user = item.get('user');
+            var user = item.get("user");
 
             //var li = $('<li>check' + title + 'out' + content + '</li>');
             //var li = $('<li></li>');
@@ -160,7 +159,7 @@ myApp.config(function($stateProvider) {
             var Content = $('<div id = "C"></div>');
             Content.text(content);
             var D = $('<div id = "Date"></div>');
-            D.text(" Created on " + date + " by " + item.get('username')); 
+            D.text(" Created on " + date + " by " + user.getUsername()); 
             var Rate = $('<div id = "R"></div>');
             // Rate.raty({score: rating, readOnly: true});
             var Helpful = $('<div id = "H"></div>');
@@ -207,24 +206,26 @@ myApp.config(function($stateProvider) {
                     getData();
                 }
             });
-
+            
             if (votes != 0) {
                 Helpful.text(helpful + " out of " + votes + " found this story awesome.");
             } else {
                 Helpful.text("This story has not been voted yet. Be the first!")
             }
 
-            if (currentUser.id == user.id) {
+            if (currentUser != null && currentUser.id == user.id) {
                 div.append(button);
             }
 
             div.append(Rate);
             div.append(Title);
+            // div.append(button);
             div.append(voteDown);
             div.append(voteUp);
             div.append(D);
             div.append(Content);
             div.append(Helpful);
+
 
             
             $('#reviewArea').append(div);
