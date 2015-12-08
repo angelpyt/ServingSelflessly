@@ -88,7 +88,7 @@ myApp.config(function($stateProvider) {
                         fillOpacity: 0.5,
                         color: "red"
                     });
-                    circle.bindPopup(name + "<br>" + "more information".link(guidestar) + "<br>" + id);
+                    circle.bindPopup(name + "<br>" + "more information".link(guidestar));
                     circle.addTo(ntee1);
                 } else if (id == "2") {
                     var circle = new L.circleMarker([lat, lng], {
@@ -96,7 +96,7 @@ myApp.config(function($stateProvider) {
                         fillOpacity: 0.5,
                         color: "blue"
                     });
-                    circle.bindPopup(name + "<br>" + "more information".link(guidestar) + "<br>" + id);
+                    circle.bindPopup(name + "<br>" + "more information".link(guidestar));
                     circle.addTo(ntee2);
                 } else if (id == "3") {
                     var circle = new L.circleMarker([lat, lng], {
@@ -104,7 +104,7 @@ myApp.config(function($stateProvider) {
                         fillOpacity: 0.5,
                         color: "green"
                     });
-                    circle.bindPopup(name + "<br>" + "more information".link(guidestar) + "<br>" + id);
+                    circle.bindPopup(name + "<br>" + "more information".link(guidestar));
                     circle.addTo(ntee3);
                 } else if (id == "4") {
                     var circle = new L.circleMarker([lat, lng], {
@@ -112,7 +112,7 @@ myApp.config(function($stateProvider) {
                         fillOpacity: 0.5,
                         color: "light-blue"
                     });
-                    circle.bindPopup(name + "<br>" + "more information".link(guidestar) + "<br>" + id);
+                    circle.bindPopup(name + "<br>" + "more information".link(guidestar));
                     circle.addTo(ntee4);
                 } else if (id == "5") {
                     var circle = new L.circleMarker([lat, lng], {
@@ -120,7 +120,7 @@ myApp.config(function($stateProvider) {
                         fillOpacity: 0.5,
                         color: "pink"
                     });
-                    circle.bindPopup(name + "<br>" + "more information".link(guidestar) + "<br>" + id);
+                    circle.bindPopup(name + "<br>" + "more information".link(guidestar));
                     circle.addTo(ntee5);
                 } else if (id == "6") {
                     var circle = new L.circleMarker([lat, lng], {
@@ -128,7 +128,7 @@ myApp.config(function($stateProvider) {
                         fillOpacity: 0.5,
                         color: "purple"
                     });
-                    circle.bindPopup(name + "<br>" + "more information".link(guidestar) + "<br>" + id);
+                    circle.bindPopup(name + "<br>" + "more information".link(guidestar));
                     circle.addTo(ntee6);
                 } else if (id == "7") {
                     var circle = new L.circleMarker([lat, lng], {
@@ -136,7 +136,7 @@ myApp.config(function($stateProvider) {
                         fillOpacity: 0.5,
                         color: "orange"
                     });
-                    circle.bindPopup(name + "<br>" + "more information".link(guidestar) + "<br>" + id);
+                    circle.bindPopup(name + "<br>" + "more information".link(guidestar));
                     circle.addTo(ntee7);
                 } else if (id == "8") {
                     var circle = new L.circleMarker([lat, lng], {
@@ -144,7 +144,7 @@ myApp.config(function($stateProvider) {
                         fillOpacity: 0.5,
                         color: "white"
                     });
-                    circle.bindPopup(name + "<br>" + "more information".link(guidestar) + "<br>" + id);
+                    circle.bindPopup(name + "<br>" + "more information".link(guidestar));
                     circle.addTo(ntee8);
                 } else {
                     var circle = new L.circleMarker([lat, lng], {
@@ -152,7 +152,7 @@ myApp.config(function($stateProvider) {
                         fillOpacity: 0.5,
                         color: "black"
                     });
-                    circle.bindPopup(name + "<br>" + "more information".link(guidestar) + "<br>" + id);
+                    circle.bindPopup(name + "<br>" + "more information".link(guidestar));
                     circle.addTo(ntee9);
                 }
 
