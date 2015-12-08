@@ -19,27 +19,31 @@ Parse.initialize("WQe7zzFFG3JYkV9BP6f6Hu6T4q2uSYD9jffBLHcp", "y9hajTS7877LR6ByHV
 
 //sign up for user
 $("#signup").submit(function() {
-    var user = new Parse.User();
+    if(password === passwordConfirm) {
+        var user = new Parse.User();
 
-    user.set("username", $("#new-username").val());
-    user.set("password", $("#new-password").val());
-    user.set("passwordConfirm", $("#new-password-confirm").val());
-    user.set("reviews", [])
+        user.set("username", $("#new-username").val());
+        user.set("password", $("#new-password").val());
+        user.set("passwordConfirm", $("#new-password-confirm").val());
+        user.set("reviews", [])
 
-    user.signUp(null, {
-            success: function(user) {
-                Parse.User.logIn($("#new-username").val(), $("#new-password").val(), {
-                    success: function(user) {
-                    document.location.href = "index.html";
-                  },
-                  error: function(error) {
-                    alert("Error: " + error.code + " "+ error.message);
-                    clearInput();
-                  }
-                });
-            }
-        });
-        return false;
+        user.signUp(null, {
+                success: function(user) {
+                    Parse.User.logIn($("#new-username").val(), $("#new-password").val(), {
+                        success: function(user) {
+                        document.location.href = "index.html";
+                      },
+                      error: function(error) {
+                        alert("Error: " + error.code + " "+ error.message);
+                        clearInput();
+                      }
+                    });
+                }
+            });
+        // return false;
+    } else {
+         alert('Passwords don\'t match');
+    }
 });
 
 

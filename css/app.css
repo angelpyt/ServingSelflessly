@@ -305,7 +305,8 @@ footer {
 #T {
   font-size: 23px;
   display: inline;
-  margin-left: 5px;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 #R {
@@ -499,6 +500,11 @@ h1, input {
   color: #D5D9B3;
   font-family: "DIN", "Helvetica Neue", "Arial"
 }
+
+
+
+/*!!!!!!*/
+
 
 
 
