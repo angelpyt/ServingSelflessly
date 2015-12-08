@@ -16,10 +16,43 @@ body {
 .content {
   position:absolute;
   top:80%;
+  font-size: 12px;
 }
+
+@media screen and (min-width: 600px )  {
+  .content{
+    font-size: 1em;
+  }
+}
+
+@media screen and (min-width: 768px )  {
+  .content{
+    font-size: 2em;
+  }
+}
+
 #map { 
-  height: 400px; 
+  height: 200px; 
 }
+
+@media screen and (min-width: 600px )  {
+  #map {
+    height: 400px;
+  }
+}
+
+@media screen and (min-width: 768px )  {
+  #map {
+    height: 500px;
+  }
+}
+
+@media screen and (min-width: 1025px )  {
+  #map {
+    height: 600px;
+  }
+}
+
 #introSection {
   margin-top: 10px;
 }
@@ -108,34 +141,23 @@ footer {
   padding-right: 3em;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> d56bd5f4fc74b0cd5388b36e5b8c64c40555b01b
 
 /*footer */
 footer {
   text-align: center;
 }
 
-<<<<<<< HEAD
+
 /*---------------------Foother-----------------------------*/
 
-=======
->>>>>>> d56bd5f4fc74b0cd5388b36e5b8c64c40555b01b
+
 #contact-title {
   padding-bottom: 50px;
   text-align: center;
 }
 
 .fa {
-<<<<<<< HEAD
-
     font-size: 2em;
-    font-size: 50px;
-=======
-    font-size: 2em;
->>>>>>> d56bd5f4fc74b0cd5388b36e5b8c64c40555b01b
     color: white;
     margin-top: 15px;
     margin-bottom: 15px;
@@ -147,11 +169,7 @@ footer {
 .fa:hover {
     color: #33CCFF;
 }
-<<<<<<< HEAD
 
-
-=======
->>>>>>> d56bd5f4fc74b0cd5388b36e5b8c64c40555b01b
 @media screen and (max-width: 768px) {
   .fa{
     font-size: 30px;
@@ -549,9 +567,6 @@ h1, input {
   background-color: white;
 }
 
-#map {
-  height: 600px;
-}
 
 
 
