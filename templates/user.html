@@ -1,10 +1,11 @@
+<!-- signup form -->
 <div class="container" id="signup">
 	<div id="logbox">
 		<form id="signup-form">
 		  <h1>Create an account</h1>
 		  <input id="new-username" name="user[name]" type="text" placeholder="What's your username?" pattern="^[\w]{3,16}$" autofocus="autofocus" required="required" class="input pass"/>
 		  <input id="new-password" name="user[password]" id="pass1" type="password" placeholder="Choose a password" required="required" class="input pass"/>
-		  <input id="new-password-confirm" name="user[password2]" id="pass2" type="password" placeholder="Confirm password" required="required" class="input pass"/>
+		  <input id="new-password-confirm" name="user[password2]" id="pass2" type="password" placeholder="Confirm password" required="required" class="input pass" onkeyup="checkPass(); return false;"/>
 		  <span id="confirmMessage" class="confirmMessage"></span>
 		  <input type="submit" value="Sign me up!" class="inputButton" id="signup-button"/>
 		  <div class="text-center">already have an account? <button type="button" id="relocate-login">login</button>
@@ -13,6 +14,7 @@
 	</div>
 </div>
 
+<!-- signin form -->
 <div class="container" id="signin">
 	<div id="logbox">
 		<form id="signin-form">

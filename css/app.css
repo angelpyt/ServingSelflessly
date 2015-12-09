@@ -152,18 +152,32 @@ footer {
 
 
 #contact-title {
-  padding-bottom: 50px;
+  padding-bottom: 5px;
   text-align: center;
 }
 
 .fa {
     font-size: 2em;
+    display: inline-block;
     color: white;
     margin-top: 15px;
     margin-bottom: 15px;
     margin-left: 30px;
     margin-right: 30px;
 
+}
+
+@media screen and (min-width: 768px ) {
+   .fa {
+      font-size: 3em;
+      color: white;
+      margin-top: 15px;
+      margin-bottom: 15px;
+  }
+  #contact-title {
+    padding-bottom: 50px;
+    text-align: center;
+  }
 }
 
 .fa:hover {
@@ -378,7 +392,7 @@ footer {
   display: inline;
 }
 
-.voting {
+#votingUp, #votingDown {
   display: inline;
   float: right;
   margin-left: 5px;
@@ -426,7 +440,7 @@ footer {
   margin-top: 20px;
 }
 
-.voting, #button {
+#votingUp, #votingDown, #button {
   background-color: transparent;
   color: #3399FF !important;
   border-style: solid;

@@ -177,7 +177,7 @@ myApp.config(function($stateProvider) {
 
     // Forum page controller
     .controller('ForumController', function($scope){
-
+        //log user out
         $("#logoutButton").on("click", function() {
             if (currentUser != null) {
                 Parse.User.logOut();
@@ -223,7 +223,6 @@ myApp.config(function($stateProvider) {
                     success:function() {
                         title.val('');
                         content.val('');
-                        // $('#rating').raty({score: 0});
                         getData();
                     }
                 })
@@ -247,14 +246,11 @@ myApp.config(function($stateProvider) {
 
         // a function to build the list
         var buildList = function(data) {
-            // var rating = 0;
-
             $('#reviewArea').empty();
             data.forEach(function(d){
                 rating += d.get('rating');
                 addItem(d);
             })
-            // $("#avgRating").raty({score:rating/(data.length), readOnly: true});
         }
 
         //this function takes in an item, adds it to the sreen
@@ -267,8 +263,6 @@ myApp.config(function($stateProvider) {
             var helpful = item.get('helpful');
             var user = item.get("user");
 
-            //var li = $('<li>check' + title + 'out' + content + '</li>');
-            //var li = $('<li></li>');
             var div = $('<div class = "well"></div>');
             var Title = $('<div id = "T"></div>');
             Title.text(title);
@@ -277,29 +271,22 @@ myApp.config(function($stateProvider) {
             var D = $('<div id = "Date"></div>');
             D.text(" Created on " + date + " by " + user.getUsername()); 
             var Rate = $('<div id = "R"></div>');
-            // Rate.raty({score: rating, readOnly: true});
             var Helpful = $('<div id = "H"></div>');
 
-            var voteUp = $("<button class='voting'><span class='glyphicon glyphicon-thumbs-up'></span></button>");
-            var voteDown = $("<button class='voting'><span class='glyphicon glyphicon-thumbs-down'></span></button>");
+            var voteUp = $("<button id='votingUp'><span class='glyphicon glyphicon-thumbs-up'></span></button>");
+            var voteDown = $("<button id='votingDown'><span class='glyphicon glyphicon-thumbs-down'></span></button>");
             var button = $('<button id="button" class="btn-warning btn-xs"><span class="glyphicon glyphicon-remove"></span></button>');
 
+            //delete comment by users themself
             button.click(function() {
                 if (currentUser.id == user.id) {
                     item.destroy({
                         success:getData
                     })
                 }
-                // if (currentUser == null) {
-                //     alert ("Sign in to delete");
-                //     window.location.assign("/#/user")
-                // } else if (curremtUser.id == user.id){
-                //     item.destroy({
-                //         success:getData
-                //     })
-                // }
             })
 
+            //vote up for a comment
             voteUp.on("click", function() {
                 if (currentUser == null) {
                     alert ("Sign in to vote");
@@ -312,6 +299,7 @@ myApp.config(function($stateProvider) {
                 }  
             });
 
+            //vote down for a comment
             voteDown.on("click", function() {
                 if (currentUser == null) {
                     alert ("Sign in to vote");
@@ -323,28 +311,26 @@ myApp.config(function($stateProvider) {
                 }
             });
 
-
+            //display description for comments 
             if (votes != 0) {
                 Helpful.text(helpful + " out of " + votes + " found this story awesome.");
             } else {
                 Helpful.text("This story has not been voted yet. Be the first!")
             }
 
+            //only current user can see their comment
             if (currentUser != null && currentUser.id == user.id) {
                 div.append(button);
             }
 
             div.append(Rate);
             div.append(Title);
-            // div.append(button);
             div.append(voteDown);
             div.append(voteUp);
             div.append(D);
             div.append(Content);
             div.append(Helpful);
 
-
-            
             $('#reviewArea').append(div);
         }
 
@@ -388,10 +374,12 @@ myApp.config(function($stateProvider) {
 
     })
 
+    // User page controller
     .controller('UserController', function($scope){
 
         Parse.initialize("WQe7zzFFG3JYkV9BP6f6Hu6T4q2uSYD9jffBLHcp", "y9hajTS7877LR6ByHV7kqlQ8US1MiSvjIhVO2esd");
 
+        //switch signup and signin forms
         $(document).ready(function(){
             $("#relocate-login").click(function(){
                 console.log("signup");
@@ -467,6 +455,7 @@ myApp.config(function($stateProvider) {
             $("#password").val("");
         }
 
+        //check password matches for the confirmed password
         function checkPass() {
             //Store the password field objects into variables ...
             var pass1 = document.getElementById('pass1');
