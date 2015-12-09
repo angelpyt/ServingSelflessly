@@ -71,6 +71,10 @@ h2 {
     font-size: 25px
   }
 
+  #aboutHeader {
+    font-size: 25px;
+  }
+
 }
 
 @media screen and (min-width: 768px )  {
@@ -86,6 +90,10 @@ h2 {
   font-size: 1.5em;
 
   } 
+
+  #aboutHeader {
+    font-size: 25px;
+  }
 
 }
 
@@ -353,6 +361,7 @@ footer {
   background-color: rgba(0,0,0,.5) !important;
   color: #FFFFFF;
   text-align: center;
+  font-size: 20px;
 }
 /*---------------------End about page-----------------------------*/
 
