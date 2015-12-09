@@ -85,7 +85,7 @@ myApp.config(function($stateProvider) {
                     var circle = new L.circleMarker([lat, lng], {
                         radius: 5,
                         fillOpacity: 0.5,
-                        color: "red"
+                        color: "#053461"
                     });
                     circle.bindPopup(name + "<br>" + "more information".link(guidestar));
                     circle.addTo(ntee1);
@@ -93,63 +93,63 @@ myApp.config(function($stateProvider) {
                     var circle = new L.circleMarker([lat, lng], {
                         radius: 5,
                         fillOpacity: 0.5,
-                        color: "blue"
+                        color: "#064079"
                     });
                     circle.bindPopup(name + "<br>" + "more information".link(guidestar));
                     circle.addTo(ntee2);
                 } else if (id == "3") {
                     var circle = new L.circleMarker([lat, lng], {
                         radius: 5,
-                        fillOpacity: 0.5,
-                        color: "green"
+                        fillOpacity: 0.8,
+                        color: "#08539E"
                     });
                     circle.bindPopup(name + "<br>" + "more information".link(guidestar));
                     circle.addTo(ntee3);
                 } else if (id == "4") {
                     var circle = new L.circleMarker([lat, lng], {
                         radius: 5,
-                        fillOpacity: 0.5,
-                        color: "light-blue"
+                        fillOpacity: 0.8,
+                        color: "#0A66C2"
                     });
                     circle.bindPopup(name + "<br>" + "more information".link(guidestar));
                     circle.addTo(ntee4);
                 } else if (id == "5") {
                     var circle = new L.circleMarker([lat, lng], {
                         radius: 5,
-                        fillOpacity: 0.5,
-                        color: "pink"
+                        fillOpacity: 0.8,
+                        color: "#0D7FF2"
                     });
                     circle.bindPopup(name + "<br>" + "more information".link(guidestar));
                     circle.addTo(ntee5);
                 } else if (id == "6") {
                     var circle = new L.circleMarker([lat, lng], {
                         radius: 5,
-                        fillOpacity: 0.5,
-                        color: "purple"
+                        fillOpacity: 0.8,
+                        color: "#3D99F5"
                     });
                     circle.bindPopup(name + "<br>" + "more information".link(guidestar));
                     circle.addTo(ntee6);
                 } else if (id == "7") {
                     var circle = new L.circleMarker([lat, lng], {
                         radius: 5,
-                        fillOpacity: 0.5,
-                        color: "orange"
+                        fillOpacity: 0.8,
+                        color: "#6EB2F7"
                     });
                     circle.bindPopup(name + "<br>" + "more information".link(guidestar));
                     circle.addTo(ntee7);
                 } else if (id == "8") {
                     var circle = new L.circleMarker([lat, lng], {
                         radius: 5,
-                        fillOpacity: 0.5,
-                        color: "white"
+                        fillOpacity: 0.8,
+                        color: "#9ECCFA"
                     });
                     circle.bindPopup(name + "<br>" + "more information".link(guidestar));
                     circle.addTo(ntee8);
                 } else {
                     var circle = new L.circleMarker([lat, lng], {
                         radius: 5,
-                        fillOpacity: 0.5,
-                        color: "black"
+                        fillOpacity: 0.8,
+                        color: "#CFE5FC"
                     });
                     circle.bindPopup(name + "<br>" + "more information".link(guidestar));
                     circle.addTo(ntee9);
