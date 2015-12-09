@@ -2,42 +2,42 @@
 <div id="map" class="container">
 </div>
 
-<div id="table" class= "container">
-<form>
-<br><br>
+<div id="mapTable" class= "container">
+	<form>
+	<br><br>
 
-	<div class="form-group">
-		<div class="input-group">
-			<div class="input-group-addon"></div>
-			<input type="text" class="form-control" placeholder="search for an organization..." ng-model="search">
-		</div>      
-	</div>
-</form>
+		<div class="form-group">
+			<div class="input-group">
+				<div class="input-group-addon"></div>
+				<input type="text" class="form-control" placeholder="search for an organization..." ng-model="search">
+			</div>      
+		</div>
+	</form>
 
 
-<table ng-show="search" id="myTable" class="table table-striped">
-	<thead>
-		<tr>
-			<td>
-				<a href="" ng-click="sortType='name'">Organization Name</a>
-			</td>
-			<td>
-				<a href="" ng-click="sortType='guidestar'">Guidestar Website</a>
-			</td>
-			<td>
-				<a href="" ng-click="sortType='type'">Organization Type</a>
-			</td>
-		</tr>
+	<table ng-show="search" id="myTable" class="table table-striped">
+		<thead>
+			<tr>
+				<td>
+					<a href="" ng-click="sortType='name'">Organization Name</a>
+				</td>
+				<td>
+					<a href="" ng-click="sortType='guidestar'">Guidestar Website</a>
+				</td>
+				<td>
+					<a href="" ng-click="sortType='type'">Organization Type</a>
+				</td>
+			</tr>
 
-	</thead>
+		</thead>
 
-	<tbody>
-		<tr ng-show="search" ng-repeat="organization in mapData | orderBy: sortType | filter: search"> 
-			<td>{{organization.name}}</td>
-			<td><a ng-href="{{organization.guidestar}}" target="_blank">Website</a></td>
-			<td>{{organization.type}}</td>
-		</tr>
-	</tbody>
-</table>
-<br>
+		<tbody>
+			<tr ng-show="search" ng-repeat="organization in mapData | orderBy: sortType | filter: search"> 
+				<td>{{organization.name}}</td>
+				<td><a ng-href="{{organization.guidestar}}" target="_blank">Website</a></td>
+				<td>{{organization.type}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
  </div>

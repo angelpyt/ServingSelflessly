@@ -33,6 +33,10 @@ h2 {
   display: none;
 } 
 
+#mapTable {
+  display: none;
+}
+
 @media screen and (min-width: 600px )  {
   .content{
     font-size: 1em;
@@ -47,9 +51,13 @@ h2 {
 
   }
 
-    #mapSection {
+  #mapSection {
     display: block;
   } 
+
+  #mapTable {
+    display: block;
+  }
 
 }
 
@@ -87,24 +95,24 @@ h2 {
 
 
 #map { 
-  height: 300px; 
+  height: 400px; 
 }
 
 @media screen and (min-width: 600px )  {
-  #map {
-    height: 400px;
-  }
-}
-
-@media screen and (min-width: 768px )  {
   #map {
     height: 500px;
   }
 }
 
+@media screen and (min-width: 768px )  {
+  #map {
+    height: 600px;
+  }
+}
+
 @media screen and (min-width: 1025px )  {
   #map {
-    height: 1000px;
+    height: 700px;
   }
 }
 
