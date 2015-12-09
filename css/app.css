@@ -29,6 +29,12 @@ h2 {
 
 }
 
+#mapHeader {
+  background-color: rgba(0,0,0,.5) !important;
+  color: #FFFFFF;
+  text-align: center;
+}
+
 #mapSection {
   display: none;
 } 
@@ -615,6 +621,10 @@ footer {
 #aboutSection p {
   font-size: 1.2em;
 
+}
+
+#aboutSection {
+  width: 100%;
 }
 
 @media screen and (min-width: 600px )  {
