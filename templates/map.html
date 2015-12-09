@@ -1,24 +1,12 @@
 <!-- map.html -->
- <div id="map" class="container">
- 	
+<div id="map" class="container">
 
-
-<!--Search table-->
- </div>
+</div>
 
  <div id="table" class= "container">
- <!-- <p>{{mapData}}</p> -->
 <form>
 <br><br>
-	<!-- <div class="alert"> -->
 
-		<!-- Add an expression to show your sortType variable -->
-		<!-- <p><strong>Sort By: {{sortType}}</strong></p> -->
-
-		<!-- Add an expression to show your search variable -->
-		<!-- <p><strong>Search String: {{search}}</strong></p> -->
-
-	<!-- </div> -->
 	<div class="form-group">
 		<div class="input-group">
 			<div class="input-group-addon"></div>
@@ -33,15 +21,12 @@
 		<tr>
 			<td>
 				<a href="" ng-click="sortType='name'">Organization Name</a>
-				<!-- Organization Name -->
 			</td>
 			<td>
 				<a href="" ng-click="sortType='guidestar'">Guidestar Website</a>
-				<!-- GuideStar Website -->
 			</td>
 			<td>
 				<a href="" ng-click="sortType='type'">Organization Type</a>
-				<!-- Organization Type -->
 			</td>
 		</tr>
 
@@ -49,12 +34,11 @@
 
 	<tbody>
 		<tr ng-show="search" ng-repeat="organization in mapData | orderBy: sortType | filter: search"> 
-		<!-- <tr ng-repeat="organization in mapData"> -->
 			<td>{{organization.name}}</td>
 			<td><a ng-href="{{organization.guidestar}}" target="_blank">Website</a></td>
 			<td>{{organization.type}}</td>
 		</tr>
 	</tbody>
 </table>
-
+<br>
  </div>

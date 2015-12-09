@@ -46,6 +46,7 @@ myApp.config(function($stateProvider) {
 
     // Map page controller
     .controller('MapController', function($scope, $http){
+        // Gets data from data.json file with organization name, website, type, lat, lng, address, etc
         $http.get('data/data.json').then(function(response) {
             var data = response.data
             $scope.mapData = data
@@ -53,15 +54,21 @@ myApp.config(function($stateProvider) {
             buildMap(data)
         })
 
+        // Builds the map of the page
         var buildMap = function(data) {
+            // Creates a map 
             var map = L.map('map').setView([40, -100], 5);
+            // Creates mapbox layer with access key
             var layer = L.tileLayer('https://api.mapbox.com/v4/mapbox.high-contrast/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibGlzYWxseSIsImEiOiJjaWZzZWs2M3oxOWw2b2VrcnRobzh4OGRiIn0.fkN85EVGVV_JCobEVLwrJQ');
+            // Adds layer to map
             layer.addTo(map);
             buildData(data, map); 
 
         }
 
+        // Adds Layer groups to the map
         var buildData = function(data, map) {
+            // Creates layer groups for all 9 types of organization
             var ntee1 = new L.layerGroup([]);
             var ntee2 = new L.layerGroup([]);
             var ntee3 = new L.layerGroup([]);
@@ -72,7 +79,7 @@ myApp.config(function($stateProvider) {
             var ntee8 = new L.layerGroup([]);
             var ntee9 = new L.layerGroup([]);
 
-
+            // Loops through data and sets variables for all organization parameters
             for (var i = 0; i < data.length; i++) {
                 var name = data[i].name;
                 var nccsweb = data[i].nccsweb;
@@ -81,6 +88,8 @@ myApp.config(function($stateProvider) {
                 var lng = data[i].lng;
                 var id = data[i].id;
 
+                // Adds organization to appropriate map layer by organization type/ntee id
+                // Creates circle marker and creates popup with organization's name and guidestar website
                 if (id == "1") {
                     var circle = new L.circleMarker([lat, lng], {
                         radius: 5,
@@ -157,6 +166,7 @@ myApp.config(function($stateProvider) {
 
             }
 
+            // Sets layer group definitions
             var layer = {
                 "Arts, Culture & Humanities": ntee1,
                 "Education": ntee2,
@@ -169,9 +179,9 @@ myApp.config(function($stateProvider) {
                 "Mutal/Membership Benefit": ntee9
             }
 
+            // Sets layer groups to map layer
             L.control.layers(null, layer).addTo(map);
-        }
-        
+        }   
     })
 
     // Forum page controller
