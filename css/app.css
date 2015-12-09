@@ -1,87 +1,50 @@
 
-/* Changes all fonts within the body element, makes them aligned,
- has background images and colors at different parts */
+/* Changes all fonts within the body element, makes them aligned, has background images and colors at different parts */
 body {
   font-family: "DIN", "Helvetica Neue", "Arial";
   background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0)), url('../img/background.jpg');
-  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0)), url('../img/background.jpg');
-  background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0)), url('../img/background.jpg');
-  background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0)), url('../img/background.jpg');
-  background-attachment: fixed;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0)), url('../img/background.jpg');
+    background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0)), url('../img/background.jpg');
+    background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0)), url('../img/background.jpg');
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-/*---------------Home Page Start--------------*/
-/* Changes font size, colors, and margines of top heading */
-#top-heading {
-    color: white;
-    text-transform: lowercase;
-    margin-top: 0em;
-    margin-bottom: .9em;
-    font-size: 4em;
-    font-family: "DIN", "Helvetica Neue", "Arial"
-    font-weight: 100;
-}
 
-/* Changes homeSection background to be white and have padding */
-#homeSection {
-  background-color: white;
-  color: #0f3654;
-  padding-left: 8em;
-  padding-right: 8em;
-}
-
-#homeSection > p {
-  line-height: 3em;
-}
-
-/* Changes intro welcome text to be greyish */
-#introSection {
-  background-color: rgb(240,240,240);
-}
-
-/* Changes text size of welcome message on homepage */
-#introSection p {
-  font-size: 1em;
-}
-
-/* The infographic on the homepage displays nothing */
-#mapSection {
-  padding-top: 100px;
-  display: none;
-}
-
-/* Adjusts the position and background color of the slider on homepage */
-.jumbotron {
-  background-color: white;
-    -webkit-border-radius: 0 !important;
-    -moz-border-radius: 0 !important;
-    border-radius: 0 !important;
-  margin: 0em;
-  width: 100%;
-  padding: 2em;
-  padding-left: 3em;
-  padding-right: 3em;
-}
-
-/* Changes the position and font size for the white title banner
- on the slider from the homepage */
 .content {
   position: absolute;
   top: 80%;
   font-size: 12px;
 }
 
-/* Sets font size for h2 elements */
+
 h2 {
   font-size: 1.2em;
 }
 
-/* On screens 600px and larger, title banner increases in size, h2 
-text increases, welcoming message increases, 
-and infographic displays */
+#introSection p {
+  font-size: 1em;
+
+}
+
+#mapHeader {
+  font-size: 20px;
+  background-color: rgba(0,0,0,.5) !important;
+  color: #FFFFFF;
+  text-align: center;
+  padding-bottom: 1em;
+}
+
+#mapSection {
+  display: none;
+} 
+
+#mapTable {
+  display: none;
+}
+
 @media screen and (min-width: 600px )  {
   .content{
     font-size: 1em;
@@ -93,10 +56,23 @@ and infographic displays */
 
   #introSection p {
   font-size: 1.2em;
+
   }
+
+  #mapSection {
+    display: block;
+  } 
+
+  #mapTable {
+    display: block;
+  }
+
+  #mapHeader {
+    font-size: 25px
+  }
+
 }
 
-/* On screens 768px and larger, font sizes on frontpage increases */
 @media screen and (min-width: 768px )  {
   .content{
     font-size: 1.5em;
@@ -107,11 +83,12 @@ and infographic displays */
   }
 
   #introSection p {
-    font-size: 1.5em;
+  font-size: 1.5em;
+
   } 
+
 }
 
-/* On screens 1025 and larger, font size increases on frontpage */
 @media screen and (min-width: 1025px )  {
   .content {
     font-size: 2em;
@@ -122,43 +99,20 @@ and infographic displays */
   }
 
   #introSection p {
-   font-size: 1.8em;
+  font-size: 1.8em;
+
   } 
 }
-/*---------------Home Page End--------------*/
 
-/*--------------- Map Page Start--------------*/
-/* This section sets map height to different pixels on different screen sizes */
+
+
 #map { 
   height: 400px; 
 }
 
-/*Map search table displays none on screens (changed later)*/
-#mapTable {
-  display: none;
-}
-
-/*Changes Map title to have pading, colorbackground, text size & position */
-#mapHeader {
-  font-size: 25px;
-  background-color: rgba(0,0,0,.5) !important;
-  color: #FFFFFF;
-  text-align: center;
-  padding-bottom: 1em;
-}
-
-/*Changes map height, displays map and search*/
 @media screen and (min-width: 600px )  {
   #map {
     height: 500px;
-  }
-
-  #mapSection {
-    display: block;
-  } 
-
-  #mapTable {
-    display: block;
   }
 }
 
@@ -173,11 +127,7 @@ and infographic displays */
     height: 700px;
   }
 }
-/*--------------- Map Page End--------------*/
 
-/*---------------Footer Start--------------*/
-/* Changes footer background color, text, font, margins, and makes width
-go accross the page */
 footer {
     background-color: rgba(0,0,0,.6);
     color: white;
@@ -185,70 +135,26 @@ footer {
     padding-bottom: 1em;
     padding-top: 1em;
     width: 100%;
-    text-align: center;
-}
 
-/* Changes the contact-title font, makes it centered, and implements padding */
-#contact-title {
-  padding-bottom: 10px;
-  text-align: center;
-  font-size: 1.2em;
-}
-
-/* Changes the size of social media icons near the footer */
-.fa {
-    font-size: 1.2em;
-    color: white;
-    margin: 5px;
-}
-
-/* Changes the color of the icons when hovered over */
-.fa:hover {
-  color: #33CCFF;
-}
-
-/* On media screens 600px and higher, icons increase in size, margins
-increase, and contact-title changes in size */
-@media screen and (min-width: 600px )  {
-  .fa {
-    font-size: 1.5em;
-    margin: 10px;
   }
 
-  #contact-title{
-    font-size: 1.5em;
-  }
-}
-
-/* On media screens 768px and higher, icons increase in size, margins
-increase, and contact-title is centered */
-@media screen and (min-width: 768px ) {
-  .fa {
-    font-size: 2.5em;
-    color: white;
-    margin-top: 15px;
-    margin-bottom: 15px;
-  }
-
-  #contact-title {
-    padding-bottom: 50px;
-    text-align: center;
-    font-size:2.5em;
-  }
-}
-
-/* On screens 768px and greater, padding changes */
 @media screen and (min-width: 768px )  {
   footer {
+    background-color: rgba(0,0,0,.6);
+    color: white;
+    font-family: 'Raleway', sans-serif;
     padding-bottom: 3em;
     padding-top: 3em;
+
   }
 }
-/*---------------Footer End--------------*/
 
-/*---------------Navigation Bar Start--------------*/
-/*Makes navbar pinned to top, background colored, have padding, 
-and changes the size to achieve other wanted styles */
+
+
+/*---------------navigation bar--------------*/
+
+
+
 #navbar {
   width: 88%;
   z-index: 1000;
@@ -275,23 +181,125 @@ and changes the size to achieve other wanted styles */
 .navbar-nav>li>a:hover{
   font-weight: bold;
 }
-/*---------------Navigation Bar End--------------*/
 
-/*---------------About Page Start---------------------*/
-/*Changes the pading and margins and many styles about the about page*/
+/*home page*/
+#top-heading {
+    color: white;
+    text-transform: lowercase;
+    margin-top: 0em;
+    margin-bottom: .9em;
+    font-size: 4em;
+    font-family: "DIN", "Helvetica Neue", "Arial"
+    font-weight: 100;
+}
+
+#homeSection {
+  background-color: white;
+  color: #0f3654;
+  padding-left: 8em;
+  padding-right: 8em;
+}
+
+#homeSection > p {
+  line-height: 3em;
+}
+
+#introSection {
+  background-color: rgb(240,240,240);
+}
+
+#mapSection {
+  padding-top: 100px;
+}
+
+.jumbotron {
+  background-color: white;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+  margin: 0em;
+  width: 100%;
+  padding: 2em;
+  padding-left: 3em;
+  padding-right: 3em;
+}
+
+
+/*footer */
+footer {
+  text-align: center;
+}
+
+
+/*---------------------Footer-----------------------------*/
+
+
+#contact-title {
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.fa {
+
+    font-size: 1.2em;
+    color: white;
+    margin: 5px;
+
+}
+
+@media screen and (min-width: 768px ) {
+   .fa {
+      font-size: 3em;
+      color: white;
+      margin-top: 15px;
+      margin-bottom: 15px;
+  }
+  #contact-title {
+    padding-bottom: 50px;
+    text-align: center;
+  }
+}
+
+.fa:hover {
+    color: #33CCFF;
+}
+
+
+@media screen and (min-width: 600px )  {
+  .fa {
+    font-size: 1.5em;
+    margin: 10px;
+  }
+
+  #contact-title{
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .fa{
+    font-size: 2em;
+    margin: 15px;
+  }
+
+  #contact-title {
+  font-size: 2em;
+  }
+}
+
+/*---------------------about page-----------------------------*/
+
 .jumbotron .quotes {
   max-width: 80%;
 }
-
 .quotes {
   padding-top:100px
 }
-
 .quote {
   display:table;
   margin-bottom:100px
 }
-
 @media (min-width: 1025px) {{margi.quoten-left:100px;margin-right:100px}}
 .quote:last-child {
   margin-bottom:0;
@@ -346,9 +354,9 @@ and changes the size to achieve other wanted styles */
   color: #FFFFFF;
   text-align: center;
 }
-/*---------------------About Page End-----------------------------*/
+/*---------------------End about page-----------------------------*/
 
-/*-----------------Slider on Front Page Start------------------*/
+/*---------------------End about page-----------------------------*/
 .slider-wrapper.default>div{
   display:none
 }
@@ -434,11 +442,8 @@ and changes the size to achieve other wanted styles */
     max-width: 100%;
     height: auto;
 }
-/*-----------------Slider on Front Page End------------------*/
 
-/*-----------------Submit Buttons (forum page) Start------------------*/
-/*User login and logout button has position,background,margins,
-and font-size changed.*/
+/*User login*/
 #signupButton, #logoutButton {
   background-color: transparent;
   color: #3399FF !important;
@@ -453,8 +458,6 @@ and font-size changed.*/
   position: top;
 }
 
-/*Submit story button text color changes, position changes,
-and margin changes */
 #storySubmitButton {
   background-color: transparent;
   color: #3399FF !important;
@@ -465,9 +468,8 @@ and margin changes */
   margin: 10px;
   font-size: 13px;
 }
-/*-----------------Submit Buttons (forum page) End------------------*/
 
-/*-----------------Review Area (forum page) Start------------------*/
+/*review area*/
 #input {
   padding-right: 50px;
   padding-left: 50px;
@@ -604,9 +606,6 @@ and margin changes */
   margin: 10px;
   font-size: 13px;
 }
-/*-----------------Review Area (forum page) End------------------*/
-
-/*-----------------Forum and About Page Start------------------*/
 #forumHeader {
   text-align: center;
   font-size: 30px;
@@ -641,8 +640,10 @@ and margin changes */
 
   #aboutSection p {
     font-size: 1.4em;
+
   }
 }
+
 
 @media screen and (min-width: 768px )  {
   #input {
@@ -650,12 +651,10 @@ and margin changes */
     padding-left: 100px;
     background: rgb(216,216,216);
   }
-
   .well {
     margin-right: 100px;
     margin-left: 100px;
   }
-
   #forumHeader {
     font-size: 60px;
   }
@@ -664,9 +663,7 @@ and margin changes */
     font-size: 1.8em;
   }
 }
-/*-----------------Forum and About Page End------------------*/
-
-/*------------------User Page Start------------------------*/
+/*--------------------------user------------------------------*/
 .container {
   display: block;
   height: 100%;
@@ -730,30 +727,24 @@ h1, input {
   -moz-box-shadow: 0 5px 0 #2CADAD;
   box-shadow: 0 5px 0 #2CADAD;
 }
-
 .inputButton:hover {
   top: 2px;
   -webkit-box-shadow: 0 3px 0 #2CADAD;
   -moz-box-shadow: 0 3px 0 #2CADAD;
   box-shadow: 0 3px 0 #2CADAD;
 }
-
 .inputButton:active {
   top: 5px;
   box-shadow: none;
 }
-
 .inputButton:focus {
   outline: none;
 }
-/*------------------User Page End------------------------*/
 
-/*------------------Signin Styles Start------------------------*/
 /*sets display of signin to none*/
 #signin {
   display: none;
 }
-
 #relocate-create, #relocate-login {
   background-color: transparent;
   border: none;
@@ -764,7 +755,7 @@ h1, input {
 .table {
   background-color: white;
 }
-/*------------------Signin Styles End------------------------*/
+
 
 
 
