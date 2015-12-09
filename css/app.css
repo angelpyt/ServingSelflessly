@@ -30,10 +30,11 @@ h2 {
 }
 
 #mapHeader {
-  font-size: 30px;
+  font-size: 25px;
   background-color: rgba(0,0,0,.5) !important;
   color: #FFFFFF;
   text-align: center;
+  padding-bottom: 1em;
 }
 
 #mapSection {
