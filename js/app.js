@@ -54,7 +54,6 @@ myApp.config(function($stateProvider) {
         })
 
         var buildMap = function(data) {
-            // console.log(data)
             var map = L.map('map').setView([40, -100], 5);
             var layer = L.tileLayer('https://api.mapbox.com/v4/mapbox.high-contrast/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibGlzYWxseSIsImEiOiJjaWZzZWs2M3oxOWw2b2VrcnRobzh4OGRiIn0.fkN85EVGVV_JCobEVLwrJQ');
             layer.addTo(map);
@@ -342,7 +341,6 @@ myApp.config(function($stateProvider) {
     .controller('AboutController', function($scope, $http, $firebaseArray){
         $http.get('data/about.json').success(function(response) {
             $scope.aboutData = response;
-        // console.log($scope.aboutData)
         });
 
         // Contact box
@@ -382,12 +380,10 @@ myApp.config(function($stateProvider) {
         //switch signup and signin forms
         $(document).ready(function(){
             $("#relocate-login").click(function(){
-                console.log("signup");
                 $("#signin").show();
                 $("#signup").hide();
             });
             $("#relocate-create").click(function(){
-                console.log("signin");
                 $("#signin").hide();
                 $("#signup").show();
             });
