@@ -341,8 +341,8 @@ myApp.config(function($stateProvider) {
     // About page controller
     .controller('AboutController', function($scope, $http, $firebaseArray){
         $http.get('data/about.json').success(function(response) {
-        $scope.aboutData = response;
-        console.log($scope.aboutData)
+            $scope.aboutData = response;
+        // console.log($scope.aboutData)
         });
 
         // Contact box
