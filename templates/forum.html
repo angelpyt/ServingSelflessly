@@ -1,0 +1,31 @@
+<form id="account-form out" class="log-out">
+    <button id="logoutButton" class="btn btn-lg btn-default" type="submit">Log out</button>
+</form>
+<form id="account-form" action="templates/user.html">
+    <button id="signupButton" ui-sref="user" class="btn btn-lg btn-default" type="submit">Sign Up</button>
+</form>
+
+
+<h1 id="forumHeader">Share Your Story</h1>
+<section id="aboutSection" class="jumbotron container">
+    <div><br>
+        <p>Share your story with us about your experience with non-profit organizations. What was your experience like with the organization? What type of an environment did the organization hold? Did you like the people that were in the organization? Would you participate with that organization again if you had the chance to? Each one of your unique experiences and stories helps those that are interested in volunteering or working with non-profit. Please leave your message here and spread the knowledge!</p>
+    <br></div>
+</section>
+<div id="rating"></div>
+<div id= "write">
+<form id="input">
+    <div class = "form-group"> 
+        <label for = "title"></label>
+        <input id="title" class="form-control" placeholder="a title for your story"></input>
+    </div>
+    <div class = "form-group"> 
+        <label for = "content"></label>
+        <textarea id="content" rows = "5" class="form-control input-lg" placeholder="What is your story?"></textarea>
+    </div>
+    <button id="storySubmitButton" type="submit" class="btn btn-primary">Save</button></br></br>
+</form>
+</div>
+
+<h3 id="forumHeader">Story Wall</h3>
+<div id = "reviewArea"></div>
